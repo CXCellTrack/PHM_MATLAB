@@ -43,7 +43,7 @@ namespace WindowsServicePHM
         // 从txt中读入diag_trigger_time：dtt 和 predict_trigger_time：ptt
         public static Dictionary<string, int> result = read_diag_trigger_time(txtpath);
         public static int dtt = result["diag_trigger_time"];
-        public static int ptt = result["n_predict"];
+        public static int ptt = result["predict_trigger_time"];
         public static int predict_time = result["max_diag_time"]; // 诊断多少分钟后开始预测(predict_time 即为 max_diag_time)
 
 

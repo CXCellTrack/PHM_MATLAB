@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<current_Water_info time="2016-12-02 22:53:45" type="雨水管线"><!--单个管线的故障结构描述 "fault1" 
+<current_Water_info time="2016-12-07 17:20:37" type="雨水管线"><!--单个管线的故障结构描述 "fault1" 
    其中 fault1 可以被传感器检测，sensorType="YSJC"--><!--YSJC代表雨水液位传感器-->
    <faultStructure faultNumber="1" root="雨水阻塞">
       <fault name="雨水阻塞" sensorType="YSJC">
@@ -266,7 +266,7 @@
          <mean>[0.711 1.623 1.623 1.623]</mean>
          <cov>[0.108 0.108 0.108 0.108]</cov>
       </CPD>
-      <pipeid>[int32([36 8])]</pipeid>
+      <pipeid>[36 8]</pipeid>
    </sensor>
    <sensor name="112015090058" pipeNumber="1" type="YSJC">
       <pipe>GX_YSL_4000_JYJ_802</pipe>

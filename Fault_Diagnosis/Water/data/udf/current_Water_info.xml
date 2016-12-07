@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<current_Water_info time="2016-12-02 23:11:33" type="给水管线"><!--单个管线的故障结构描述 "fault1->fault2->fault3" 
+<current_Water_info time="2016-12-07 17:20:03" type="给水管线"><!--单个管线的故障结构描述 "fault1->fault2->fault3" 
    其中 fault1 无法被传感器检测，sensorType="None"
    其中 fault2 无法被传感器检测，sensorType="None"
    其中 fault3 可以被传感器检测，sensorType="SLYJ"--><!--如果是离散节点则直接将值写在CPD中--><!--SLYJ代表渗漏预警-->

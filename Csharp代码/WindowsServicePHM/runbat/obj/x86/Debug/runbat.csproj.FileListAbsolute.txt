@@ -11,10 +11,6 @@ C:\Users\Administrator\Desktop\PHM_PIPE\Csharp代码\WindowsServicePHM\runbat_di
 C:\Users\Administrator\Desktop\PHM_PIPE\Csharp代码\WindowsServicePHM\runbat_diag_post\bin\Debug\runbat.pdb
 C:\Users\Administrator\Desktop\PHM_PIPE\Csharp代码\WindowsServicePHM\runbat_diag_post\obj\x86\Debug\runbat.exe
 C:\Users\Administrator\Desktop\PHM_PIPE\Csharp代码\WindowsServicePHM\runbat_diag_post\obj\x86\Debug\runbat.pdb
-C:\Users\Administrator\Desktop\PHM_PIPE\Csharp代码\WindowsServicePHM\runbat\bin\Debug\runbat.exe
-C:\Users\Administrator\Desktop\PHM_PIPE\Csharp代码\WindowsServicePHM\runbat\bin\Debug\runbat.pdb
-C:\Users\Administrator\Desktop\PHM_PIPE\Csharp代码\WindowsServicePHM\runbat\obj\x86\Debug\runbat.exe
-C:\Users\Administrator\Desktop\PHM_PIPE\Csharp代码\WindowsServicePHM\runbat\obj\x86\Debug\runbat.pdb
 K:\WZY\新建文件夹 (2)\WindowsServicePHM\runbat\bin\Debug\runbat.exe
 K:\WZY\新建文件夹 (2)\WindowsServicePHM\runbat\bin\Debug\runbat.pdb
 K:\WZY\新建文件夹 (2)\WindowsServicePHM\runbat\obj\x86\Debug\ResolveAssemblyReference.cache
@@ -24,3 +20,7 @@ C:\Users\Administrator\Desktop\PHM_PIPE-DEV\Csharp代码\WindowsServicePHM\runba
 C:\Users\Administrator\Desktop\PHM_PIPE-DEV\Csharp代码\WindowsServicePHM\runbat\bin\Debug\runbat.pdb
 C:\Users\Administrator\Desktop\PHM_PIPE-DEV\Csharp代码\WindowsServicePHM\runbat\obj\x86\Debug\runbat.exe
 C:\Users\Administrator\Desktop\PHM_PIPE-DEV\Csharp代码\WindowsServicePHM\runbat\obj\x86\Debug\runbat.pdb
+C:\Users\Administrator\Desktop\PHM_PIPE\Csharp代码\WindowsServicePHM\runbat\bin\Debug\runbat.exe
+C:\Users\Administrator\Desktop\PHM_PIPE\Csharp代码\WindowsServicePHM\runbat\bin\Debug\runbat.pdb
+C:\Users\Administrator\Desktop\PHM_PIPE\Csharp代码\WindowsServicePHM\runbat\obj\x86\Debug\runbat.exe
+C:\Users\Administrator\Desktop\PHM_PIPE\Csharp代码\WindowsServicePHM\runbat\obj\x86\Debug\runbat.pdb
