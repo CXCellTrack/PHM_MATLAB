@@ -2,10 +2,16 @@
 
 *.mat
 
-MCR_files
+/MCR_files/*
 
-Precompiled_EXE
+/Precompiled_EXE/*
 
-Release_Version
+/Release_Version/*
 
-����ʹ���ĵ�
+!*.bat
+
+软件使用文档
+
+
+
+# .gitignore必须以utf-8无bom格式保存，否则无法识别中文
