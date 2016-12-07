@@ -1,0 +1,36 @@
+clear
+
+%% 读入xml文件
+dmatrix_xml = 'C:\Users\Administrator\Desktop\PHM_PIPE\Fault_Diagnosis\Water\data\udf\Dmatrix_Water.xml';
+file = xml_read(dmatrix_xml); % 使用外部的库xml_read
+
+%% 生成struct结构
+pipeclass = 'Water';
+diagpath = getphmpath('diag');
+Dmatrix_path = [diagpath, '\',pipeclass,'\data\udf\my\Dmatrix_',pipeclass,'.txt'];
+cpd_path = [diagpath, '\',pipeclass,'\data\udf\CPD_',pipeclass,'.txt'];
+Dmatrix = read_Dmatrix( Dmatrix_path );
+
+%% 将struct写入xml文件
+file = struct;
+Pref = struct; Pref.CellItem = false; Pref.StructItem = false; % 控制xml的特性
+file.ATTRIBUTE.time = '2016.3.7';
+for i=1:size(Dmatrix,1)
+    flag =  sum(isemptycell(Dmatrix(i,2:end)));
+    file.sensor(i,1).pipe = Dmatrix(i,2:end-flag);
+    file.sensor(i,1).ATTRIBUTE.name = Dmatrix{i,1};
+    file.sensor(i,1).ATTRIBUTE.type = '渗漏预警';
+    
+    nn = 2^(size(Dmatrix,2)-flag-1);
+    file.sensor(i,1).CPD.ATTRIBUTE.type = 'gaussian';
+    file.sensor(i,1).CPD.mean = 1:nn;
+    file.sensor(i,1).CPD.cov = (1:nn)/10;
+end
+
+xml_write('C:\Users\Administrator\Desktop\PHM_PIPE\Fault_Diagnosis\Water\data\udf\Dmatrix_Water.xml', file, 'Dmatrix_Water', Pref);
+
+
+
+
+
+

@@ -1,0 +1,31 @@
+-- 在每次诊断执行完之后，执行此脚本更新诊断结果的FAULTDESC部分
+-- 放在代码中不太灵活，因此将这个拿出来执行
+UPDATE "YJ_WARNING_FORECAST"
+SET FAULTDESC = CASE 
+WHEN FAULTTYPE = '腐蚀' AND PROBABLITY>='0.8' AND ISNORMAL = '0' THEN
+	'预测结果:极有可能腐蚀'
+WHEN FAULTTYPE = '腐蚀' AND PROBABLITY<'0.8' AND ISNORMAL = '0' THEN
+	'预测结果:可能腐蚀'
+WHEN FAULTTYPE = '破损' AND PROBABLITY>='0.8' AND ISNORMAL = '0' THEN
+	'预测结果:极有可能破损'
+WHEN FAULTTYPE = '破损' AND PROBABLITY<'0.8' AND ISNORMAL = '0' THEN
+	'预测结果:可能破损'
+WHEN FAULTTYPE = '渗漏' AND PROBABLITY>='0.8' AND ISNORMAL = '0' THEN
+	'预测结果:极有可能渗漏'
+WHEN FAULTTYPE = '渗漏' AND PROBABLITY<'0.8' AND ISNORMAL = '0' THEN
+	'预测结果:可能渗漏'
+WHEN FAULTTYPE = '雨水阻塞' AND PROBABLITY<'0.8' AND ISNORMAL = '0' THEN
+	'预测结果:可能雨水阻塞'
+WHEN FAULTTYPE = '雨水阻塞' AND PROBABLITY>='0.8' AND ISNORMAL = '0' THEN
+	'预测结果:极有可能雨水阻塞'
+WHEN FAULTTYPE = '污水阻塞' AND PROBABLITY<'0.8' AND ISNORMAL = '0' THEN
+	'预测结果:可能污水阻塞'
+WHEN FAULTTYPE = '污水阻塞' AND PROBABLITY>='0.8' AND ISNORMAL = '0' THEN
+	'预测结果:极有可能污水阻塞'
+ELSE
+	'预测结果:正常'
+END;
+WHERE
+	FAULTDESC IS NULL;
+-- AND ISNORMAL = '0';
+-- exit;

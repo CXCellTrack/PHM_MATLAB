@@ -1,0 +1,48 @@
+function add_ojbdc_to_classpath()
+
+
+[status, result] = system('set path');
+
+if status
+    error('系统中找不到path变量！');
+end
+
+% ind = strfind(result, 'v716\runtime\win32');
+ind = strfind(result, '\runtime\win32');
+if isempty(ind)
+    error('必须先安装MCR(Matlab Compile Runtime)！');
+else
+    % 从libpath的位置往前数，找到;开始处
+    s_ind = ind;
+    while ~strcmp(result(s_ind), ';')
+        s_ind = s_ind - 1;
+    end
+    matlabroot = result(s_ind+1:ind);
+end
+
+% 检查根目录下是否有ojdbc6.jar驱动
+jarpath = [matlabroot, 'ojdbc6.jar'];
+if ~exist(jarpath, 'file')
+    error('请将ojdbc6.jar放到MCR根目录下！');
+end
+
+% 打开classpath.txt，添加驱动位置
+txtpath = [matlabroot, 'toolbox\local\classpath.txt'];
+fid = fopen(txtpath, 'a');
+if fid==-1
+    error('请检查MCR目录下\toolbox\local\classpath.txt是否存在！');
+end
+
+fprintf(fid, '\r\n$matlabroot/ojdbc6.jar');
+fclose(fid);
+fprintf('已将oracle驱动位置写入classpath！\n');
+
+
+
+
+
+
+
+
+            
+        

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 储存给水管线的健康度权值表 -->
+<heath_weight_table type="Water" fault_num="3">
+
+	<!-- 相对维修费用 -->
+	<repair weight="0.4">
+		<cost>1</cost>
+		<cost>50</cost>
+		<cost>100</cost>
+	</repair>
+	
+	<!-- 相对破坏程度 -->
+	<damage weight="0.4">
+		<cost>1</cost>
+		<cost>20</cost>
+		<cost>100</cost>
+	</damage>
+	
+	<!-- 专家建议 -->
+	<expert weight="0.2">
+		<cost>1</cost>
+		<cost>10</cost>
+		<cost>100</cost>
+	</expert>
+	
+	<!-- 分级标准 满分100分 数字表示多少分以上才能得到该评价 -->
+	<standard>
+		<very_healthy>80</very_healthy>
+		<healthy>60</healthy>
+		<semi_healthy>60</semi_healthy>
+		<ill>20</ill>
+	</standard>
+
+</heath_weight_table>

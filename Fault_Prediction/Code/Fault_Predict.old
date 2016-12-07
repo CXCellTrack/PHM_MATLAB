@@ -1,0 +1,89 @@
+function data2write = Fault_Predict( conn, pipe_type )
+
+%
+% 只预测根节点的故障发生概率，然后用贝叶斯公式推理出其各子节点概率
+% 这种方法似乎有点问题？2015.9.24
+%
+home = getPHM_HOME;
+fprintf('\n启动故障预测...\n');
+% 选择管线进行预测
+switch pipe_type
+    case 'water'
+        tablename = 'diag_result_water';
+        root_node = '腐蚀'; % 只预测根节点的概率？
+        cmd = readSVRparam( 'Water');
+        get_data2write = @get_PR_water; % 用函数句柄编译可行么？
+        txtname = [home,'\故障预警\Water\data\backup_water.txt'];
+    case 'sewage'
+        %
+    case 'rain'
+        %
+    case 'gas'
+        %
+    case 'heat'
+        %
+    otherwise
+        error('管线类型只能是 water、sewage、rain、gas、heat 中的一种!');
+end
+
+% --------------------------------------------------------------
+% n_train 限制训练样本的个数
+% n_predict 预测未来多少次的输出
+[ n_train n_predict ] = readPredict_Config(home);
+colname = 'pipe_id'; % 从数据库中取得管线个数
+[ n_pipe ~ ] = getMaxMinInDBCol( conn, colname, tablename );
+[last_dr_id, ~] = getMaxMinInDBCol( conn, 'diag_record_id', tablename ); % 最近一次诊断结果的id
+% setdbprefs('datareturnformat', 'numeric'); % 设置导入的数据为矩阵类型
+
+data = zeros(n_pipe, n_predict); % 数据
+
+fprintf('<预测%d个管线未来%d小时的故障发生概率>\n', n_pipe, n_predict);
+tic
+for i=1:n_pipe
+    fprintf('开始预测管线%d...\n', i);
+    
+    sql = ['SELECT "probablity" FROM (SELECT * FROM "',tablename,'" ORDER BY "diag_time" DESC) WHERE "pipe_id"=',...
+        num2str(i),' AND "fault_type"=''',root_node,''' AND ROWNUM<= ',num2str(n_train),' AND "diag_record_id"<=',last_dr_id];
+    g1 = fetch(exec(conn, sql));
+    if ~isempty(g1.Message)
+        error(g1.Message);
+    end
+    close(g1); % 关闭游标
+    
+    dd = cell2mat(g1.Data); % 转为mat格式
+    train_data = fliplr(dd');
+    train_fea = 1:size(train_data,2);
+    test_fea = (train_fea(1): train_fea(end)+n_predict);
+    % 调用自写函数进行SVR预测，SVR参数在cmd中
+%     [ prediction bias ] = SVRpredict( train_data, train_fea, test_fea, cmd );
+    [ prediction bias ] = LinerPredict( train_data, train_fea, test_fea );
+    
+    if 0
+        plot(train_fea, train_data, 'b.');hold on;
+        plot(test_fea,prediction,'r',test_fea,prediction+bias,'g',test_fea, prediction-bias,'g');hold off;
+    end
+
+    data(i,1) = bias; % 第一列存放偏差
+    data(i,2:n_predict+1) = prediction(end-n_predict+1:end)'; % 后面列存放预测结果
+end
+fprintf('<使用了%d条历史数据>\n',size(train_data,2));
+toc
+fprintf('故障预测完成！\n\n');
+
+% --------------------------------------------------------------
+% 将data整合成data2write——字符串cell形式
+data2write = get_data2write( data, last_dr_id, n_pipe );
+
+% 数据本地备份
+WriteData2txt( txtname, data2write );
+
+
+
+
+
+
+
+
+
+
+

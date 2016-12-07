@@ -1,0 +1,72 @@
+城市地下管线PHM系统使用说明
+
+---------------------------
+2015.10.28 C.X.
+
+
+---------------- 初始配置 ---------------- （仅初始运行时需要配置）
+
+1、安装包解压后以管理员方式运行 AddPhmPath.bat （写入系统环境变量）
+
+2、写入完成后可能需要注销或重启
+
+3、可在cmd中输入 echo %PHM_HOME% 查看新的环境变量是否生效
+
+4、将 \MCR配置\ 中的 add_classpath.bat 和 ojdbc6.jar 放到之前安装的 MATLAB 库的根目录下（一般为D:\xxx\v716\）
+
+5、运行 add_classpath.bat 将oracle驱动的地址写入 MATLAB 环境
+
+
+---------------- 测试数据库连接 ---------------- （仅初始运行时需要配置）
+
+1、打开 DBinfo.ini， 修改其中的
+
+	service_name_oracle：	服务名/SID
+	username_oracle：	用户名
+	password_oracle：	密码
+	database_url_oracle：	将最后的 localhost:1521 改为目标IP和端口号
+
+2、在cmd中运行 \linkDB_test\distrib\linkDB.exe （注意，直接打开无效）
+
+3、初次运行等待时间较长，成功连接上数据库会有提示
+
+4、连接成功后，运行 \序列触发器sql脚本\create_trigger.sql 给故障预警表添加触发器
+
+
+---------------- PHM软件系统运行 ---------------- （仅初始运行时需要配置）
+
+1、前2步均测试无误后，进入 \Csharp代码 
+
+2、以管理员方式运行 InstallService.bat，即可开启 PHM 服务
+
+3、服务开启后，可在 ServicePHM.log 中查看服务实时运行状态
+
+4、可在 cmd 中使用 net stop PHM 关闭PHM服务（不关闭的话会一直往数据库中写数据）
+
+5、也可以管理员方式运行 UninstallService.bat，卸载 PHM 服务
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

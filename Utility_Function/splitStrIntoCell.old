@@ -1,0 +1,31 @@
+function strCell = splitStrIntoCell( str, delimiter )
+% ---------------------------------------- %
+% delimiter 为分隔符，通常为 ' '——空格
+%                           ','——逗号
+% 本函数作用是将一个string按分隔符划分成cell
+% 此函数功能与matlab内部函数strsplit相同， 不予采用
+
+len = length(deblank(str)); % 字符串去掉末尾空格后长度为0，则返回空
+if len==0
+    strCell = {''};
+    return;
+end
+
+if nargin==1 % 如果没设置delimiter，默认为空格
+    delimiter = ' ';
+end
+
+ind = strfind(str, delimiter); % 字符串中不包含分隔符时，返回字符串本身
+if isempty(ind)
+    strCell = {str};
+    return;
+end
+
+spaceflag = [ 0 ind len+1]; % 按分隔符分割
+strCell = cell(1, numel(spaceflag)-1);
+for ii=1:numel(spaceflag)-1
+    strCell{ii} = str( spaceflag(ii)+1:spaceflag(ii+1)-1 );
+end
+
+
+end

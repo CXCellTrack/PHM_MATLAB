@@ -1,0 +1,130 @@
+function bnet = AssignCPD( pipeclass, bnet, n_fault, s_fault, n_sensor)
+% 
+% 故障连接方式：
+% 腐蚀->破损->渗漏
+% 设定1为不发生，2为发生，则 p(y=1|x=1)=0.2;p(y=2|x=1)=0.8
+%     1  2 破损
+% 1  0.8 0.2
+% 2  0.7 0.3
+% 腐蚀
+diagpath = getphmpath('diag');
+cpd_path = [diagpath, '\',pipeclass,'\data\udf\CPD_',pipeclass,'.txt'];
+
+
+if 0
+    %
+    % load上一次参数更新后保存下来的bnet_with_cpd，然后return
+    %
+else
+    % 从CPD表中读入初始CPD数据，包括离散故障节点和高斯传感器节点
+    CPDnode = read_Initial_CPD( cpd_path, bnet, s_fault, n_fault, n_sensor );
+
+end
+
+% ----------------------------------------------------------------------- %
+% 如果是读入的初始CPD数据，则需要把数据写入空bnet中
+% ----------------------------------------------------------------------- %
+n_node = n_fault + n_sensor;
+for i=1:s_fault:n_fault % 故障节点的CPD
+    for uu=i:i+s_fault-1
+        fault_type = mod(uu,s_fault); % 用几个基本fault的cpd扩展一下
+        fault_type(fault_type==0) = s_fault;
+
+        bnet.CPD{uu} = tabular_CPD(bnet, uu, 'CPT', CPDnode.faultnode{fault_type},...
+            'prior_type', 'dirichlet', 'dirichlet_type', 'unif', 'dirichlet_weight', 1);
+    end
+end
+
+for j=n_fault+1:n_node % 传感器节点的CPD
+    if any(bnet.cnodes==j)
+        bnet.CPD{j} = gaussian_CPD(bnet, j, 'cov_type', 'diag', 'mean',...
+            CPDnode.sensornode(j-n_fault).mean, 'cov', CPDnode.sensornode(j-n_fault).cov ); % 假设传感器数据为高斯分布
+    elseif any(bnet.dnodes==j)
+%         disp(CPDnode.sensornode(j-n_fault).cpd)
+        bnet.CPD{j} = tabular_CPD(bnet, j, 'CPT', CPDnode.sensornode(j-n_fault).cpd,...
+            'prior_type', 'dirichlet', 'dirichlet_type', 'unif', 'dirichlet_weight', 1);
+    else
+        errorlog(['传感器节点',num2str(j),'不属于高斯节点也不属于离散节点！']);
+    end     
+end
+
+
+
+
+% ================== 内部函数：read_Initial_CPD_water ================= %
+function CPDnode = read_Initial_CPD( cpd_path, bnet, s_fault, n_fault, n_sensor )
+
+fidin = fopen( cpd_path, 'r'); % 打开人工分配的D矩阵文件
+if fidin==-1
+    error('打开txt文件失败！');
+end
+
+% 几种故障节点的CPT
+faultnode = cell(s_fault,1);
+% faultnode = cellfun(@(x) cell(1),faultnode, 'un',0);
+
+sensornode = struct;
+sensor_id = 0;
+
+while ~feof(fidin) % 判断是否为文件末尾   
+    % 从文件读行并去掉行尾的空格
+    tline = deblank(fgetl(fidin));
+    if numel(tline)==0 || strcmp(tline(1), '#') % 行首为#，说明是注释，则跳过
+        continue;
+    end
+    
+    % 对每一行数据把传感器的标识对应成数字编号
+    strcell = strsplit(':', tline); % char(9)为tab键
+    
+    if numel(strcell)==2 % 说明是离散节点 
+        cpd = str2num( mydeblank(strcell{2}) );
+        if isempty(cpd)
+            errorlog(['请检查',strcell{1},'是否存在书写错误！']);
+        end
+        firstcell = mydeblank(strcell{1});
+        
+        if strcmp('fault',firstcell(1:5)) % 故障：概率
+            nn = str2num(firstcell(end));
+            assert(~isempty(nn)); % 最后一位必须是整数
+            faultnode{nn} = cpd;
+        else                            % （离散）传感器：概率
+            % 2016.1.4 目前有点问题
+            % 这里可以判断传感器节点是否为离散，但bnet此时已经建好了，里面的离散节点只包括故障节点
+            % 2016.1.5 修复完毕
+            sensor_id = sensor_id + 1;
+            if 2^numel(bnet.parents{sensor_id+n_fault})~= numel(cpd)/2 % 检查CPD规模是否正确
+                errorlog([strcell{1},'的父节点数目与离散CPD的规模不一致！']);
+            end
+            sensornode(sensor_id,1).cpd = cpd;
+            
+        end
+            
+        
+    elseif numel(strcell)==3 % 说明是高斯节点 传感器：均值：方差
+        
+        tmpmean = str2num( mydeblank(strcell{2}) );
+        tmpcov = str2num( mydeblank(strcell{3}) );
+        if numel(tmpmean)~=numel(tmpcov)
+            errorlog([strcell{1},'传感器的CPD的均值与方差个数不一致']);
+        end
+        % 此处不并校验传感器名称与编号是否对应，存在一定风险
+        % 因此需要确保 CPD.txt中传感器的顺序与 Dmatrix.txt 中的一致！
+        sensor_id = sensor_id + 1;
+        
+        if 2^numel(bnet.parents{sensor_id+n_fault})~= numel(tmpmean) % 检查CPD规模是否正确
+            errorlog([strcell{1},'的父节点数目与高斯CPD的规模不一致！']);
+        end
+        sensornode(sensor_id,1).mean = tmpmean;
+        sensornode(sensor_id,1).cov = tmpcov;
+    else
+        errorlog([strcell{1},'的CPD格式错误！']);
+    end
+end
+fclose(fidin);
+if sensor_id~=n_sensor
+    errorlog([cpd_path,'中的传感器个数为',num2str(n_sensor),',与已有的bnet中的不一致！']);
+end
+
+CPDnode.sensornode = sensornode;
+CPDnode.faultnode = faultnode;
+

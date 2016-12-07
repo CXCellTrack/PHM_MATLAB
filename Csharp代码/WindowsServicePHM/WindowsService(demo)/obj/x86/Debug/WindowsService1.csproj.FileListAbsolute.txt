@@ -1,0 +1,8 @@
+C:\Users\Administrator\Desktop\PHM代码\Csharp代码\WindowsServicePHM\WindowsService1\bin\Debug\WindowsService1.exe
+C:\Users\Administrator\Desktop\PHM代码\Csharp代码\WindowsServicePHM\WindowsService1\bin\Debug\WindowsService1.pdb
+C:\Users\Administrator\Desktop\PHM代码\Csharp代码\WindowsServicePHM\WindowsService1\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\Administrator\Desktop\PHM代码\Csharp代码\WindowsServicePHM\WindowsService1\obj\x86\Debug\WindowsService1.ProjectInstaller.resources
+C:\Users\Administrator\Desktop\PHM代码\Csharp代码\WindowsServicePHM\WindowsService1\obj\x86\Debug\GenerateResource.read.1.tlog
+C:\Users\Administrator\Desktop\PHM代码\Csharp代码\WindowsServicePHM\WindowsService1\obj\x86\Debug\GenerateResource.write.1.tlog
+C:\Users\Administrator\Desktop\PHM代码\Csharp代码\WindowsServicePHM\WindowsService1\obj\x86\Debug\WindowsService1.exe
+C:\Users\Administrator\Desktop\PHM代码\Csharp代码\WindowsServicePHM\WindowsService1\obj\x86\Debug\WindowsService1.pdb

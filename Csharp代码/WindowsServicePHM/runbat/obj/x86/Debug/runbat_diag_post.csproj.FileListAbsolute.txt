@@ -1,0 +1,9 @@
+C:\Users\Administrator\Desktop\PHM_PIPE\Csharp代码\WindowsServicePHM\runbat\bin\Debug\runbat.exe
+C:\Users\Administrator\Desktop\PHM_PIPE\Csharp代码\WindowsServicePHM\runbat\bin\Debug\runbat.pdb
+C:\Users\Administrator\Desktop\PHM_PIPE\Csharp代码\WindowsServicePHM\runbat\obj\x86\Debug\runbat.exe
+C:\Users\Administrator\Desktop\PHM_PIPE\Csharp代码\WindowsServicePHM\runbat\obj\x86\Debug\runbat.pdb
+C:\Users\Administrator\Desktop\PHM_PIPE\Csharp代码\WindowsServicePHM\runbat_diag_post\bin\Debug\runbat_diag_post.exe
+C:\Users\Administrator\Desktop\PHM_PIPE\Csharp代码\WindowsServicePHM\runbat_diag_post\bin\Debug\runbat_diag_post.pdb
+C:\Users\Administrator\Desktop\PHM_PIPE\Csharp代码\WindowsServicePHM\runbat_diag_post\obj\x86\Debug\runbat_diag_post.exe
+C:\Users\Administrator\Desktop\PHM_PIPE\Csharp代码\WindowsServicePHM\runbat_diag_post\obj\x86\Debug\runbat_diag_post.pdb
+C:\Users\Administrator\Desktop\PHM_PIPE\Csharp代码\WindowsServicePHM\runbat_diag_post\obj\x86\Debug\runbat_diag_post.csprojResolveAssemblyReference.cache

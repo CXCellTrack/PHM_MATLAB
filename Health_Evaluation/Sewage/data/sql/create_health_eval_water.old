@@ -1,0 +1,12 @@
+CREATE TABLE "SCOTT"."health_eval_water" (
+"db_id" NUMBER NOT NULL ,
+"pipe_id" NUMBER NULL ,
+"health_value" NUMBER NULL ,
+"health_eval" VARCHAR2(255) NULL ,
+"eval_time" DATE NULL ,
+"eval_record_id" VARCHAR2(255) NULL ,
+PRIMARY KEY ("db_id")
+)
+NOCOMPRESS
+;
+exit;

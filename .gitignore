@@ -1,0 +1,11 @@
+*.log
+
+*.mat
+
+MCR_files
+
+Precompiled_EXE
+
+Release_Version
+
+软件使用文档

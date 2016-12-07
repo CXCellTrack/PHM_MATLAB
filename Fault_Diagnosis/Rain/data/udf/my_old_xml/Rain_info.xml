@@ -1,0 +1,261 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Rain_info time="2016.4.7" type="雨水管线"> 
+
+   <!-- 单个管线的故障结构描述 "fault1" 
+   其中 fault1 可以被传感器检测，sensorType="YSJC"
+   -->
+	<faultStructure faultNumber="1" root="雨水阻塞">
+		<fault name="雨水阻塞" sensorType="YSJC">
+			<next>None</next>
+			<CPD>[0.5 0.5]</CPD>
+		</fault>
+	</faultStructure>
+   
+	<!-- YSJC代表雨水液位传感器 -->
+	<sensor name="112015090050" type="YSJC" pipeNumber="1"> 
+	  <pipe>GX_YSL_4000_JYJ_788,GX_YSL_4000_JYJ_789</pipe>
+	  <CPD type="gaussian">		<!-- 如果是离散节点则直接将值写在CPD中 -->
+		 <mean>[10 20]</mean>
+		 <cov>[0.1 0.2]</cov>
+	  </CPD>
+	</sensor>
+	<sensor name="112015090051" type="YSJC" pipeNumber="2"> 
+	  <pipe>GX_YSL_4000_JYJ_776</pipe>
+	  <pipe>GX_YSL_4000_JYJ_780</pipe>
+	  <CPD type="gaussian">	
+		 <mean>[10 20 30 40]</mean>
+		 <cov>[0.1 0.2 0.3 0.4]</cov>
+	  </CPD>
+	</sensor>
+	<sensor name="112015090040" type="YSJC" pipeNumber="1"> 
+		<pipe>GX_YSL_4000_JYJ_785,GX_YSL_4000_JYJ_731,GX_YSL_4000_JYJ_733</pipe>
+		<CPD type="gaussian">	
+			<mean>[10 20]</mean>
+			<cov>[0.1 0.2]</cov>
+		</CPD>
+	</sensor>
+ 	<sensor name="112015090013" type="YSJC" pipeNumber="2"> 
+		<pipe>GX_YSL_4000_JYJ_633</pipe>
+		<pipe>GX_YSL_4000_JYJ_635</pipe>
+		<CPD type="gaussian">		
+			<mean>[10 20 30 40]</mean>
+			<cov>[0.1 0.2 0.3 0.4]</cov>
+		</CPD>
+	</sensor>
+  	<sensor name="112015090041" type="YSJC" pipeNumber="1"> 
+		<pipe>GX_YSL_4000_FQJ_613</pipe>
+		<CPD type="gaussian">
+			<mean>[10 20]</mean>
+			<cov>[0.1 0.2]</cov>
+		</CPD>
+	</sensor>
+   	<sensor name="112015090034" type="YSJC" pipeNumber="2"> 
+		<pipe>GX_YSL_4000_TEDL_566</pipe>
+		<pipe>GX_YSL_4000_TEDL_567</pipe>
+		<CPD type="gaussian">
+			<mean>[10 20 30 40]</mean>
+			<cov>[0.1 0.2 0.3 0.4]</cov>
+		</CPD>
+	</sensor>
+	<sensor name="112015090046" type="YSJC" pipeNumber="1"> 
+		<pipe>GX_YSL_4000_TEDL_552</pipe>
+		<CPD type="gaussian">
+			<mean>[10 20]</mean>
+			<cov>[0.1 0.2]</cov>
+		</CPD>
+	</sensor>
+	<sensor name="112015090039" type="YSJC" pipeNumber="2"> 
+		<pipe>GX_YSL_4000_TEDL_532</pipe>
+		<pipe>GX_YSL_4000_TEDL_548</pipe>
+		<CPD type="gaussian">
+			<mean>[10 20 30 40]</mean>
+			<cov>[0.1 0.2 0.3 0.4]</cov>
+		</CPD>
+	</sensor>
+	<sensor name="112015090035" type="YSJC" pipeNumber="1"> 
+		<pipe>GX_YSL_4000_YGL_473,GX_YSL_4000_YWL_481,GX_YSL_4000_YWL_482</pipe>
+		<CPD type="gaussian">
+			<mean>[10 20]</mean>
+			<cov>[0.1 0.2]</cov>
+		</CPD>
+	</sensor>	
+	<sensor name="112015090062" type="YSJC" pipeNumber="1"> 
+		<pipe>GX_YSL_4000_YGL_464,GX_YSL_4000_YGL_463</pipe>
+		<CPD type="gaussian">
+			<mean>[10 20]</mean>
+			<cov>[0.1 0.2]</cov>
+		</CPD>
+	</sensor>	
+	<sensor name="112015090062" type="YSJC" pipeNumber="1"> 
+		<pipe>GX_YSL_4000_YGL_464,GX_YSL_4000_YGL_463</pipe>
+		<CPD type="gaussian">
+			<mean>[10 20]</mean>
+			<cov>[0.1 0.2]</cov>
+		</CPD>
+	</sensor>		
+	<sensor name="112015090060" type="YSJC" pipeNumber="1"> 
+		<pipe>GX_YSL_4000_ZWL_374,GX_YSL_4000_ZWL_376,GX_YSL_4000_ZWL_373</pipe>
+		<CPD type="gaussian">
+			<mean>[10 20]</mean>
+			<cov>[0.1 0.2]</cov>
+		</CPD>
+	</sensor>		
+	<sensor name="112015090044" type="YSJC" pipeNumber="1"> 
+		<pipe>GX_YSL_4000_TEDL_388,GX_YSL_4000_TEDL_389,GX_YSL_4000_TEDL_393</pipe>
+		<CPD type="gaussian">
+			<mean>[10 20]</mean>
+			<cov>[0.1 0.2]</cov>
+		</CPD>
+	</sensor>	
+	<sensor name="112015090042" type="YSJC" pipeNumber="1"> 
+		<pipe>GX_YSL_4000_YWL_342</pipe>
+		<CPD type="gaussian">
+			<mean>[10 20]</mean>
+			<cov>[0.1 0.2]</cov>
+		</CPD>
+	</sensor>		
+	<sensor name="112015090048" type="YSJC" pipeNumber="1"> 
+		<pipe>GX_YSL_4000_YWL_337</pipe>
+		<CPD type="gaussian">
+			<mean>[10 20]</mean>
+			<cov>[0.1 0.2]</cov>
+		</CPD>
+	</sensor>		
+	<sensor name="112015090067" type="YSJC" pipeNumber="1"> 
+		<pipe>GX_YSL_4000_YWL_298,GX_YSL_4000_HDL_303,GX_YSL_4000_HDL_304</pipe>
+		<CPD type="gaussian">
+			<mean>[10 20]</mean>
+			<cov>[0.1 0.2]</cov>
+		</CPD>
+	</sensor>	
+	<sensor name="112015090043" type="YSJC" pipeNumber="1"> 
+		<pipe>GX_YSL_4000_HDL_285</pipe>
+		<CPD type="gaussian">
+			<mean>[10 20]</mean>
+			<cov>[0.1 0.2]</cov>
+		</CPD>
+	</sensor>	
+	<sensor name="112015090057" type="YSJC" pipeNumber="1"> 
+		<pipe>GX_YSL_4000_YWL_171</pipe>
+		<CPD type="gaussian">
+			<mean>[10 20]</mean>
+			<cov>[0.1 0.2]</cov>
+		</CPD>
+	</sensor>	
+	<sensor name="112015090052" type="YSJC" pipeNumber="1"> 
+		<pipe>GX_YSL_4000_ZWL_093,GX_YSL_4000_ZWL_094,GX_YSL_4000_ZWL_090</pipe>
+		<CPD type="gaussian">
+			<mean>[10 20]</mean>
+			<cov>[0.1 0.2]</cov>
+		</CPD>
+	</sensor>		
+	<sensor name="112015090036" type="YSJC" pipeNumber="1"> 
+		<pipe>GX_YSL_4000_FQJ_021,GX_YSL_4000_FQJ_022,GX_YSL_4000_FQJ_020</pipe>
+		<CPD type="gaussian">
+			<mean>[10 20]</mean>
+			<cov>[0.1 0.2]</cov>
+		</CPD>
+	</sensor>		
+	<sensor name="112015090015" type="YSJC" pipeNumber="1"> 
+		<pipe>GX_YSL_4000_LGL_097,GX_YSL_4000_LGL_100,GX_YSL_4000_LGL_099</pipe>
+		<CPD type="gaussian">
+			<mean>[10 20]</mean>
+			<cov>[0.1 0.2]</cov>
+		</CPD>
+	</sensor>		
+	<sensor name="112015090047" type="YSJC" pipeNumber="1"> 
+		<pipe>GX_YSL_4000_LGL_788,GX_YSL_4000_LGL_786</pipe>
+		<CPD type="gaussian">
+			<mean>[10 20]</mean>
+			<cov>[0.1 0.2]</cov>
+		</CPD>
+	</sensor>		
+	<sensor name="112015090059" type="YSJC" pipeNumber="1"> 
+		<pipe>GX_YSL_4000_LGL_009</pipe>
+		<CPD type="gaussian">
+			<mean>[10 20]</mean>
+			<cov>[0.1 0.2]</cov>
+		</CPD>
+	</sensor>	
+	<sensor name="112015090012" type="YSJC" pipeNumber="1"> 
+		<pipe>GX_YSL_4000_LGL_164,GX_YSL_4000_LGL_166</pipe>
+		<CPD type="gaussian">
+			<mean>[10 20]</mean>
+			<cov>[0.1 0.2]</cov>
+		</CPD>
+	</sensor>	
+	<sensor name="112015090055" type="YSJC" pipeNumber="1"> 
+		<pipe>GX_YSL_4000_LGL_895,GX_YSL_4000_LGL_699</pipe>
+		<CPD type="gaussian">
+			<mean>[10 20]</mean>
+			<cov>[0.1 0.2]</cov>
+		</CPD>
+	</sensor>		
+	<sensor name="112015090014" type="YSJC" pipeNumber="1"> 
+		<pipe>GX_YSL_4000_LGL_980,GX_YSL_4000_LGL_979,GX_YSL_4000_LGL_977,GX_YSL_4000_LGL_968</pipe>
+		<CPD type="gaussian">
+			<mean>[10 20]</mean>
+			<cov>[0.1 0.2]</cov>
+		</CPD>
+	</sensor>		
+	<sensor name="112015090032" type="YSJC" pipeNumber="1"> 
+		<pipe>GX_YSL_4000_LGL_730,GX_YSL_4000_LGL_870</pipe>
+		<CPD type="gaussian">
+			<mean>[10 20]</mean>
+			<cov>[0.1 0.2]</cov>
+		</CPD>
+	</sensor>		
+	<sensor name="112015090010" type="YSJC" pipeNumber="1"> 
+		<pipe>GX_YSL_4000_LGL_992</pipe>
+		<CPD type="gaussian">
+			<mean>[10 20]</mean>
+			<cov>[0.1 0.2]</cov>
+		</CPD>
+	</sensor>	
+	<sensor name="112015090011" type="YSJC" pipeNumber="1"> 
+		<pipe>GX_YSL_4000_LGL_939</pipe>
+		<CPD type="gaussian">
+			<mean>[10 20]</mean>
+			<cov>[0.1 0.2]</cov>
+		</CPD>
+	</sensor>		
+	<sensor name="112015090045" type="YSJC" pipeNumber="1"> 
+		<pipe>GX_YSL_4000_LGL_826,GX_YSL_4000_LGL_823</pipe>
+		<CPD type="gaussian">
+			<mean>[10 20]</mean>
+			<cov>[0.1 0.2]</cov>
+		</CPD>
+	</sensor>		
+	
+	<sensor name="112015090068" type="YSJC" pipeNumber="1"> 
+		<pipe>GX_YSL_4000_HDL_155,GX_YSL_4000_HDL_156</pipe>
+		<CPD type="gaussian">
+			<mean>[10 20]</mean>
+			<cov>[0.1 0.2]</cov>
+		</CPD>
+	</sensor>	
+	<sensor name="112015090069" type="YSJC" pipeNumber="1"> 
+		<pipe>GX_YSL_4000_YWL_415,GX_YSL_4000_YWL_414</pipe>
+		<CPD type="gaussian">
+			<mean>[10 20]</mean>
+			<cov>[0.1 0.2]</cov>
+		</CPD>
+	</sensor>
+	<sensor name="112015090070" type="YSJC" pipeNumber="2"> 
+		<pipe>GX_YSL_4000_TEDL_368</pipe>
+		<pipe>GX_YSL_4000_TEDL_566</pipe>
+		<CPD type="gaussian">
+			<mean>[10 20 30 40]</mean>
+			<cov>[0.1 0.2 0.3 0.4]</cov>
+		</CPD>
+	</sensor>
+	<sensor name="112015090058" type="YSJC" pipeNumber="1"> 
+		<pipe>GX_YSL_4000_JYJ_802</pipe>
+		<CPD type="gaussian">
+			<mean>[10 20]</mean>
+			<cov>[0.1 0.2]</cov>
+		</CPD>
+	</sensor>
+	
+	
+</Rain_info>

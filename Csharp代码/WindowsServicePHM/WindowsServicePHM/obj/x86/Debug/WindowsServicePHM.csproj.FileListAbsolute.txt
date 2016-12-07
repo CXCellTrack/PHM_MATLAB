@@ -1,0 +1,59 @@
+C:\Users\Administrator\Desktop\WindowsServicePHM\WindowsServicePHM\bin\Debug\WindowsServicePHM.exe
+C:\Users\Administrator\Desktop\WindowsServicePHM\WindowsServicePHM\bin\Debug\WindowsServicePHM.pdb
+C:\Users\Administrator\Desktop\WindowsServicePHM\WindowsServicePHM\obj\x86\Debug\WindowsServicePHM.exe
+C:\Users\Administrator\Desktop\WindowsServicePHM\WindowsServicePHM\obj\x86\Debug\WindowsServicePHM.pdb
+C:\Users\Administrator\Desktop\WindowsServicePHM\WindowsServicePHM\obj\x86\Debug\WindowsServicePHM.ProjectInstaller.resources
+C:\Users\Administrator\Desktop\WindowsServicePHM\WindowsServicePHM\obj\x86\Debug\WindowsServicePHM.csproj.GenerateResource.Cache
+C:\Users\Administrator\Desktop\PHM代码\Csharp代码\WindowsServicePHM\WindowsServicePHM\bin\Debug\WindowsServicePHM.exe.config
+C:\Users\Administrator\Desktop\PHM代码\Csharp代码\WindowsServicePHM\WindowsServicePHM\bin\Debug\WindowsServicePHM.exe
+C:\Users\Administrator\Desktop\PHM代码\Csharp代码\WindowsServicePHM\WindowsServicePHM\bin\Debug\WindowsServicePHM.pdb
+C:\Users\Administrator\Desktop\PHM代码\Csharp代码\WindowsServicePHM\WindowsServicePHM\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\Administrator\Desktop\PHM代码\Csharp代码\WindowsServicePHM\WindowsServicePHM\obj\x86\Debug\WindowsServicePHM.ProjectInstaller.resources
+C:\Users\Administrator\Desktop\PHM代码\Csharp代码\WindowsServicePHM\WindowsServicePHM\obj\x86\Debug\GenerateResource.read.1.tlog
+C:\Users\Administrator\Desktop\PHM代码\Csharp代码\WindowsServicePHM\WindowsServicePHM\obj\x86\Debug\GenerateResource.write.1.tlog
+C:\Users\Administrator\Desktop\PHM代码\Csharp代码\WindowsServicePHM\WindowsServicePHM\obj\x86\Debug\WindowsServicePHM.exe
+C:\Users\Administrator\Desktop\PHM代码\Csharp代码\WindowsServicePHM\WindowsServicePHM\obj\x86\Debug\WindowsServicePHM.pdb
+C:\Users\Administrator\Desktop\PHM_PIPE\Csharp\WindowsServicePHM\WindowsServicePHM\obj\x86\Debug\WindowsServicePHM.ProjectInstaller.resources
+C:\Users\Administrator\Desktop\PHM_PIPE\Csharp\WindowsServicePHM\WindowsServicePHM\obj\x86\Debug\WindowsServicePHM.csproj.GenerateResource.Cache
+C:\Users\Administrator\Desktop\PHM_PIPE\Csharp\WindowsServicePHM\WindowsServicePHM\obj\x86\Debug\WindowsServicePHM.exe
+C:\Users\Administrator\Desktop\PHM_PIPE\Csharp\WindowsServicePHM\WindowsServicePHM\obj\x86\Debug\WindowsServicePHM.pdb
+C:\Users\Administrator\Desktop\PHM_PIPE\Csharp\WindowsServicePHM\WindowsServicePHM\bin\Debug\WindowsServicePHM.exe.config
+C:\Users\Administrator\Desktop\PHM_PIPE\Csharp\WindowsServicePHM\WindowsServicePHM\bin\Debug\WindowsServicePHM.exe
+C:\Users\Administrator\Desktop\PHM_PIPE\Csharp\WindowsServicePHM\WindowsServicePHM\bin\Debug\WindowsServicePHM.pdb
+K:\WZY\新建文件夹 (2)\WindowsServicePHM\WindowsServicePHM\bin\Debug\WindowsServicePHM.exe.config
+K:\WZY\新建文件夹 (2)\WindowsServicePHM\WindowsServicePHM\obj\x86\Debug\WindowsServicePHM.exe
+K:\WZY\新建文件夹 (2)\WindowsServicePHM\WindowsServicePHM\obj\x86\Debug\WindowsServicePHM.pdb
+K:\WZY\新建文件夹 (2)\WindowsServicePHM\WindowsServicePHM\bin\Debug\WindowsServicePHM.exe
+K:\WZY\新建文件夹 (2)\WindowsServicePHM\WindowsServicePHM\bin\Debug\WindowsServicePHM.pdb
+K:\WZY\新建文件夹 (2)\WindowsServicePHM\WindowsServicePHM\obj\x86\Debug\ResolveAssemblyReference.cache
+K:\WZY\新建文件夹 (2)\WindowsServicePHM\WindowsServicePHM\obj\x86\Debug\WindowsServicePHM.ProjectInstaller.resources
+K:\WZY\新建文件夹 (2)\WindowsServicePHM\WindowsServicePHM\obj\x86\Debug\GenerateResource.read.1.tlog
+K:\WZY\新建文件夹 (2)\WindowsServicePHM\WindowsServicePHM\obj\x86\Debug\GenerateResource.write.1.tlog
+C:\Users\Administrator\Desktop\PHM_PIPE-full\Csharp代码\WindowsServicePHM\WindowsServicePHM\bin\Debug\WindowsServicePHM.exe.config
+C:\Users\Administrator\Desktop\PHM_PIPE-full\Csharp代码\WindowsServicePHM\WindowsServicePHM\obj\x86\Debug\WindowsServicePHM.exe
+C:\Users\Administrator\Desktop\PHM_PIPE-full\Csharp代码\WindowsServicePHM\WindowsServicePHM\obj\x86\Debug\WindowsServicePHM.pdb
+C:\Users\Administrator\Desktop\PHM_PIPE-full\Csharp代码\WindowsServicePHM\WindowsServicePHM\bin\Debug\WindowsServicePHM.exe
+C:\Users\Administrator\Desktop\PHM_PIPE-full\Csharp代码\WindowsServicePHM\WindowsServicePHM\bin\Debug\WindowsServicePHM.pdb
+C:\Users\Administrator\Desktop\PHM_PIPE-full\Csharp代码\WindowsServicePHM\WindowsServicePHM\obj\x86\Debug\WindowsServicePHM.ProjectInstaller.resources
+C:\Users\Administrator\Desktop\PHM_PIPE-full\Csharp代码\WindowsServicePHM\WindowsServicePHM\obj\x86\Debug\WindowsServicePHM.csproj.GenerateResource.Cache
+C:\Users\Administrator\Desktop\PHM_PIPE-DEV\Csharp代码\WindowsServicePHM\WindowsServicePHM\bin\Debug\WindowsServicePHM.exe.config
+C:\Users\Administrator\Desktop\PHM_PIPE-DEV\Csharp代码\WindowsServicePHM\WindowsServicePHM\bin\Debug\WindowsServicePHM.exe
+C:\Users\Administrator\Desktop\PHM_PIPE-DEV\Csharp代码\WindowsServicePHM\WindowsServicePHM\bin\Debug\WindowsServicePHM.pdb
+C:\Users\Administrator\Desktop\PHM_PIPE-DEV\Csharp代码\WindowsServicePHM\WindowsServicePHM\obj\x86\Debug\WindowsServicePHM.ProjectInstaller.resources
+C:\Users\Administrator\Desktop\PHM_PIPE-DEV\Csharp代码\WindowsServicePHM\WindowsServicePHM\obj\x86\Debug\WindowsServicePHM.csproj.GenerateResource.Cache
+C:\Users\Administrator\Desktop\PHM_PIPE-DEV\Csharp代码\WindowsServicePHM\WindowsServicePHM\obj\x86\Debug\WindowsServicePHM.exe
+C:\Users\Administrator\Desktop\PHM_PIPE-DEV\Csharp代码\WindowsServicePHM\WindowsServicePHM\obj\x86\Debug\WindowsServicePHM.pdb
+C:\Users\Administrator\Desktop\PHM_PIPE-1\Csharp代码\WindowsServicePHM\WindowsServicePHM\bin\Debug\WindowsServicePHM.exe.config
+C:\Users\Administrator\Desktop\PHM_PIPE-1\Csharp代码\WindowsServicePHM\WindowsServicePHM\obj\x86\Debug\WindowsServicePHM.exe
+C:\Users\Administrator\Desktop\PHM_PIPE-1\Csharp代码\WindowsServicePHM\WindowsServicePHM\obj\x86\Debug\WindowsServicePHM.pdb
+C:\Users\Administrator\Desktop\PHM_PIPE-1\Csharp代码\WindowsServicePHM\WindowsServicePHM\bin\Debug\WindowsServicePHM.exe
+C:\Users\Administrator\Desktop\PHM_PIPE-1\Csharp代码\WindowsServicePHM\WindowsServicePHM\bin\Debug\WindowsServicePHM.pdb
+C:\Users\Administrator\Desktop\PHM_PIPE-1\Csharp代码\WindowsServicePHM\WindowsServicePHM\obj\x86\Debug\WindowsServicePHM.ProjectInstaller.resources
+C:\Users\Administrator\Desktop\PHM_PIPE-1\Csharp代码\WindowsServicePHM\WindowsServicePHM\obj\x86\Debug\WindowsServicePHM.csproj.GenerateResource.Cache
+C:\Users\Administrator\Desktop\PHM_PIPE\Csharp代码\WindowsServicePHM\WindowsServicePHM\bin\Debug\WindowsServicePHM.exe.config
+C:\Users\Administrator\Desktop\PHM_PIPE\Csharp代码\WindowsServicePHM\WindowsServicePHM\bin\Debug\WindowsServicePHM.exe
+C:\Users\Administrator\Desktop\PHM_PIPE\Csharp代码\WindowsServicePHM\WindowsServicePHM\bin\Debug\WindowsServicePHM.pdb
+C:\Users\Administrator\Desktop\PHM_PIPE\Csharp代码\WindowsServicePHM\WindowsServicePHM\obj\x86\Debug\WindowsServicePHM.ProjectInstaller.resources
+C:\Users\Administrator\Desktop\PHM_PIPE\Csharp代码\WindowsServicePHM\WindowsServicePHM\obj\x86\Debug\WindowsServicePHM.csproj.GenerateResource.Cache
+C:\Users\Administrator\Desktop\PHM_PIPE\Csharp代码\WindowsServicePHM\WindowsServicePHM\obj\x86\Debug\WindowsServicePHM.exe
+C:\Users\Administrator\Desktop\PHM_PIPE\Csharp代码\WindowsServicePHM\WindowsServicePHM\obj\x86\Debug\WindowsServicePHM.pdb

@@ -1,0 +1,34 @@
+======================= 软件运行原理 =======================
+
+PHM_PIPE\Precompiled EXE —— 诊断和预测的核心部件
+
+PHM_PIPE\Csharp代码 —— 控制诊断和预测的循环触发
+
+ServicePHM.log —— 整个服务的宏观运行日志
+
+PHM.log —— 单次诊断/预测的运行日志
+
+
+======================= 故障诊断部分 =======================
+
+Fault_Diagnosis\SQL —— 其中存放的几个sql文件可以用于后期配置
+
+Fault_Diagnosis\diag_post.bat —— (诊断后的处理)无需修改，由C#中代码根据数据库信息动态生成
+
+Fault_Diagnosis\Water\data\udf —— 用户自定义信息，其中
+
+	Dmatrix_Water.txt —— D矩阵表
+	
+	CPD_Water.txt —— 初始CPD表
+		
+	current_CPD_Water.txt —— 经过计算更新后的CPD表
+	
+	
+======================= 故障预测部分 =======================
+
+Fault_Prediction\predict_config.ini —— 可以修改模型参数n_train、n_predict，和诊断触发时间（交给C#部分使用）
+
+
+======================= 健康度评估部分 =======================
+
+Health_Evaluation\Water\data\udf —— 可以修改其中的健康度权值表.txt

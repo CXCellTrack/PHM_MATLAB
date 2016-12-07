@@ -1,0 +1,31 @@
+function conn = link_Mysql_Database( linkDB, tablename )
+
+conn = database( linkDB.database_name_mysql, linkDB.username_mysql, linkDB.password_mysql,...
+    linkDB.driver_mysql, linkDB.database_url_mysql);
+% 使用set修改conn的信息
+% set(conn, 'AutoCommit', 'off'); % 设为off后需要在执行后 commit(conn) 才能生效
+% 连接正常时conn.Message为空，若不为空则将其信息输出
+
+dbname = linkDB.database_name_mysql;
+if isconnection(conn)
+    fprintf('成功连接到%s数据库！\n', dbname);
+else
+    error(conn.Message);
+end
+
+% 检查数据库dbname中是否存在表格tablename
+% 
+try
+    alltable = tables(conn, dbname);
+catch
+    error('无法获取数据库%s中的表格名称！\n', dbname);
+end
+% 查找表格中是否存在名为tablename的表（注意：由于数据库不关心大小写，因此要使用strncmpi进行比较）
+cmpflag = strncmpi( tablename, alltable, 50 );
+if ~any(any(cmpflag==1))
+    fprintf('数据库%s中不存在表格%s, 请先创建表格\n', dbname, tablename );
+    % create??
+else
+    fprintf('目标表格%s校验成功！', tablename);
+end
+

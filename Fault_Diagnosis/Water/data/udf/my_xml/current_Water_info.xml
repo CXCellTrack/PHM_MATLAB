@@ -1,0 +1,733 @@
+<?xml version="1.0" encoding="utf-8"?>
+<current_Water_info time="2016-07-04 20:06:35" type="给水管线"><!--单个管线的故障结构描述 "fault1->fault2->fault3" 
+   其中 fault1 无法被传感器检测，sensorType="None"
+   其中 fault2 无法被传感器检测，sensorType="None"
+   其中 fault3 可以被传感器检测，sensorType="SLYJ"--><!--SLYJ代表渗漏预警-->
+   <faultStructure faultNumber="3" root="腐蚀">
+      <fault name="腐蚀" sensorType="None">
+         <next>破损</next>
+         <CPD>[0.7 0.3]</CPD>
+      </fault>
+      <fault name="破损" sensorType="None">
+         <next>渗漏</next>
+         <CPD>[0.9 0.2 0.1 0.8]</CPD>
+      </fault>
+      <fault name="渗漏" sensorType="SLYJ">
+         <next>None</next>
+         <CPD>[0.95 0.2 0.05 0.8]</CPD>
+      </fault>
+   </faultStructure>
+   <sensor name="212015090057" pipeNumber="3" type="SLYJ">
+      <pipe>GX_JSL_3000_JYJ_254</pipe>
+      <pipe>GX_JSL_3000_JYJ_257</pipe>
+      <pipe>GX_JSL_3000_JYJ_255,GX_JSL_3000_JYJ_256</pipe>
+      <CPD type="gaussian"><!--如果是离散节点则直接将值写在CPD中-->
+         <mean>[1 2 3 4 5 6 7 8]</mean>
+         <cov>[0.1 0.2 0.3 0.4 0.5 0.6 0.7 0.8]</cov>
+      </CPD>
+      <pipeid>[1 2 3]</pipeid>
+   </sensor>
+   <sensor name="212015090004" pipeNumber="3" type="SLYJ">
+      <pipe>GX_JSL_3000_JYJ_258</pipe>
+      <pipe>GX_JSL_3000_JYJ_261</pipe>
+      <pipe>GX_JSL_3000_JYJ_259,GX_JSL_3000_JYJ_260</pipe>
+      <CPD type="gaussian">
+         <mean>[1 2 3 4 5 6 7 8]</mean>
+         <cov>[0.1 0.2 0.3 0.4 0.5 0.6 0.7 0.8]</cov>
+      </CPD>
+      <pipeid>[4 5 6]</pipeid>
+   </sensor>
+   <sensor name="212015090002" pipeNumber="3" type="SLYJ">
+      <pipe>GX_JSL_3000_JYJ_261</pipe>
+      <pipe>GX_JSL_3000_JYJ_266</pipe>
+      <pipe>GX_JSL_3000_JYJ_265,GX_JSL_3000_JYJ_264,GX_JSL_3000_JYJ_263,GX_JSL_3000_JYJ_262</pipe>
+      <CPD type="gaussian">
+         <mean>[13.036 2 3 4 5 6 7 8]</mean>
+         <cov>[0.035 0.2 0.3 0.4 0.5 0.6 0.7 0.8]</cov>
+      </CPD>
+      <pipeid>[int32([5 7 8])]</pipeid>
+   </sensor>
+   <sensor name="212015090044" pipeNumber="3" type="SLYJ">
+      <pipe>GX_JSL_3000_JYJ_267</pipe>
+      <pipe>GX_JSL_3000_JYJ_270</pipe>
+      <pipe>GX_JSL_3000_JYJ_268,GX_JSL_3000_JYJ_269</pipe>
+      <CPD type="gaussian">
+         <mean>[13.304 2 3 4 5 6 7 8]</mean>
+         <cov>[0.215 0.2 0.3 0.4 0.5 0.6 0.7 0.8]</cov>
+      </CPD>
+      <pipeid>[9 10 11]</pipeid>
+   </sensor>
+   <sensor name="212015090059" pipeNumber="3" type="SLYJ">
+      <pipe>GX_JSL_3000_JYJ_231</pipe>
+      <pipe>GX_JSL_3000_JYJ_234</pipe>
+      <pipe>GX_JSL_3000_JYJ_232,GX_JSL_3000_JYJ_233</pipe>
+      <CPD type="gaussian">
+         <mean>[15.161 2 3 4 5 6 7 8]</mean>
+         <cov>[0.137 0.2 0.3 0.4 0.5 0.6 0.7 0.8]</cov>
+      </CPD>
+      <pipeid>[12 13 14]</pipeid>
+   </sensor>
+   <sensor name="212015090032" pipeNumber="2" type="SLYJ">
+      <pipe>GX_JSL_3000_JYJ_243</pipe>
+      <pipe>GX_JSL_3000_JYJ_244</pipe>
+      <CPD type="gaussian">
+         <mean>[1 2 3 4]</mean>
+         <cov>[0.1 0.2 0.3 0.4]</cov>
+      </CPD>
+      <pipeid>[15 16]</pipeid>
+   </sensor>
+   <sensor name="212015090067" pipeNumber="3" type="SLYJ">
+      <pipe>GX_JSL_3000_JYJ_244</pipe>
+      <pipe>GX_JSL_3000_JYJ_250</pipe>
+      <pipe>GX_JSL_3000_JYJ_248,GX_JSL_3000_JYJ_247,GX_JSL_3000_JYJ_246,GX_JSL_3000_JYJ_245</pipe>
+      <CPD type="gaussian">
+         <mean>[13 2 3 4 5 6 7 8]</mean>
+         <cov>[0.01 0.2 0.3 0.4 0.5 0.6 0.7 0.8]</cov>
+      </CPD>
+      <pipeid>[int32([16 17 18])]</pipeid>
+   </sensor>
+   <sensor name="212015090012" pipeNumber="3" type="SLYJ">
+      <pipe>GX_JSL_3000_ZWL_221</pipe>
+      <pipe>GX_JSL_3000_ZWL_732</pipe>
+      <pipe>GX_JSL_3000_ZWL_220,GX_JSL_3000_ZWL_219,GX_JSL_3000_ZWL_218,GX_JSL_3000_ZWL_217,GX_JSL_3000_ZWL_216</pipe>
+      <CPD type="gaussian">
+         <mean>[1 2 3 4 5 6 7 8]</mean>
+         <cov>[0.1 0.2 0.3 0.4 0.5 0.6 0.7 0.8]</cov>
+      </CPD>
+      <pipeid>[19 20 21]</pipeid>
+   </sensor>
+   <sensor name="212015090014" pipeNumber="3" type="SLYJ">
+      <pipe>GX_JSL_3000_JYJ_145</pipe>
+      <pipe>GX_JSL_3000_JYJ_174</pipe>
+      <pipe>GX_JSL_3000_JYJ_173,GX_JSL_3000_JYJ_172,GX_JSL_3000_JYJ_171,GX_JSL_3000_JYJ_146</pipe>
+      <CPD type="gaussian">
+         <mean>[1 2 3 4 5 6 7 8]</mean>
+         <cov>[0.1 0.2 0.3 0.4 0.5 0.6 0.7 0.8]</cov>
+      </CPD>
+      <pipeid>[22 23 24]</pipeid>
+   </sensor>
+   <sensor name="212015090015" pipeNumber="3" type="SLYJ">
+      <pipe>GX_JSL_3000_JYJ_186</pipe>
+      <pipe>GX_JSL_3000_JYJ_185</pipe>
+      <pipe>GX_JSL_3000_JYJ_184,GX_JSL_3000_JYJ_183,GX_JSL_3000_JYJ_182,GX_JSL_3000_JYJ_181</pipe>
+      <CPD type="gaussian">
+         <mean>[1 2 3 4 5 6 7 8]</mean>
+         <cov>[0.1 0.2 0.3 0.4 0.5 0.6 0.7 0.8]</cov>
+      </CPD>
+      <pipeid>[25 26 27]</pipeid>
+   </sensor>
+   <sensor name="212015090055" pipeNumber="3" type="SLYJ">
+      <pipe>GX_JSL_3000_JYJ_270</pipe>
+      <pipe>GX_JSL_3000_JYJ_275</pipe>
+      <pipe>GX_JSL_3000_JYJ_274,GX_JSL_3000_JYJ_273,GX_JSL_3000_JYJ_272,GX_JSL_3000_JYJ_271</pipe>
+      <CPD type="gaussian">
+         <mean>[14.214 2 3 4 5 6 7 8]</mean>
+         <cov>[0.171 0.2 0.3 0.4 0.5 0.6 0.7 0.8]</cov>
+      </CPD>
+      <pipeid>[int32([10 28 29])]</pipeid>
+   </sensor>
+   <sensor name="212015090079" pipeNumber="3" type="SLYJ">
+      <pipe>GX_JSL_3000_JYJ_275</pipe>
+      <pipe>GX_JSL_3000_JYJ_278,GX_JSL_3000_JYJ_279</pipe>
+      <pipe>GX_JSL_3000_JYJ_277,GX_JSL_3000_JYJ_276</pipe>
+      <CPD type="gaussian">
+         <mean>[13.071 2 3 4 5 6 7 8]</mean>
+         <cov>[0.14 0.2 0.3 0.4 0.5 0.6 0.7 0.8]</cov>
+      </CPD>
+      <pipeid>[int32([28 30 31])]</pipeid>
+   </sensor>
+   <sensor name="212015090080" pipeNumber="3" type="SLYJ">
+      <pipe>GX_JSL_3000_JYJ_234</pipe>
+      <pipe>GX_JSL_3000_JYJ_198</pipe>
+      <pipe>GX_JSL_3000_JYJ_238,GX_JSL_3000_JYJ_237,GX_JSL_3000_JYJ_236,GX_JSL_3000_JYJ_235</pipe>
+      <CPD type="gaussian">
+         <mean>[14 2 3 4 5 6 7 8]</mean>
+         <cov>[0.01 0.2 0.3 0.4 0.5 0.6 0.7 0.8]</cov>
+      </CPD>
+      <pipeid>[int32([13 32 33])]</pipeid>
+   </sensor>
+   <sensor name="212015090007" pipeNumber="3" type="SLYJ">
+      <pipe>GX_JSL_3000_JYJ_742</pipe>
+      <pipe>GX_JSL_3000_JYJ_253</pipe>
+      <pipe>GX_JSL_3000_JYJ_252,GX_JSL_3000_JYJ_251</pipe>
+      <CPD type="gaussian">
+         <mean>[1 2 3 4 5 6 7 8]</mean>
+         <cov>[0.1 0.2 0.3 0.4 0.5 0.6 0.7 0.8]</cov>
+      </CPD>
+      <pipeid>[34 35 36]</pipeid>
+   </sensor>
+   <sensor name="212015090022" pipeNumber="3" type="SLYJ">
+      <pipe>GX_JSL_3000_JYJ_242</pipe>
+      <pipe>GX_JSL_3000_ZWL_210</pipe>
+      <pipe>GX_JSL_3000_ZWL_214,GX_JSL_3000_ZWL_213,GX_JSL_3000_ZWL_212,GX_JSL_3000_ZWL_211</pipe>
+      <CPD type="gaussian">
+         <mean>[12.714 2 3 4 5 6 7 8]</mean>
+         <cov>[0.244 0.2 0.3 0.4 0.5 0.6 0.7 0.8]</cov>
+      </CPD>
+      <pipeid>[37 38 39]</pipeid>
+   </sensor>
+   <sensor name="212015090006" pipeNumber="3" type="SLYJ">
+      <pipe>GX_JSL_3000_ZWL_221</pipe>
+      <pipe>GX_JSL_3000_ZWL_225</pipe>
+      <pipe>GX_JSL_3000_ZWL_222,GX_JSL_3000_ZWL_223</pipe>
+      <CPD type="gaussian">
+         <mean>[1 2 3 4 5 6 7 8]</mean>
+         <cov>[0.1 0.2 0.3 0.4 0.5 0.6 0.7 0.8]</cov>
+      </CPD>
+      <pipeid>[int32([19 40 41])]</pipeid>
+   </sensor>
+   <sensor name="212015090025" pipeNumber="3" type="SLYJ">
+      <pipe>GX_JSL_3000_FQJ_731</pipe>
+      <pipe>GX_JSL_3000_FQJ_711</pipe>
+      <pipe>GX_JSL_3000_FQJ_730,GX_JSL_3000_FQJ_715,GX_JSL_3000_FQJ_714,GX_JSL_3000_FQJ_713,GX_JSL_3000_FQJ_712</pipe>
+      <CPD type="gaussian">
+         <mean>[1 2 3 4 5 6 7 8]</mean>
+         <cov>[0.1 0.2 0.3 0.4 0.5 0.6 0.7 0.8]</cov>
+      </CPD>
+      <pipeid>[42 43 44]</pipeid>
+   </sensor>
+   <sensor name="212015090069" pipeNumber="3" type="SLYJ">
+      <pipe>GX_JSL_3000_HDL_630</pipe>
+      <pipe>GX_JSL_3000_HDL_596</pipe>
+      <pipe>GX_JSL_3000_HDL_631,GX_JSL_3000_HDL_632</pipe>
+      <CPD type="gaussian">
+         <mean>[1 2 3 4 5 6 7 8]</mean>
+         <cov>[0.1 0.2 0.3 0.4 0.5 0.6 0.7 0.8]</cov>
+      </CPD>
+      <pipeid>[45 46 47]</pipeid>
+   </sensor>
+   <sensor name="212015090026" pipeNumber="3" type="SLYJ">
+      <pipe>GX_JSL_3000_HDL_660</pipe>
+      <pipe>GX_JSL_3000_HDL_626</pipe>
+      <pipe>GX_JSL_3000_HDL_661,GX_JSL_3000_HDL_662,GX_JSL_3000_HDL_475,GX_JSL_3000_HDL_476</pipe>
+      <CPD type="gaussian">
+         <mean>[14 2 3 4 5 6 7 8]</mean>
+         <cov>[0.01 0.2 0.3 0.4 0.5 0.6 0.7 0.8]</cov>
+      </CPD>
+      <pipeid>[48 49 50]</pipeid>
+   </sensor>
+   <sensor name="212015090040" pipeNumber="3" type="SLYJ">
+      <pipe>GX_JSL_3000_FQJ_723</pipe>
+      <pipe>GX_JSL_3000_FQJ_724</pipe>
+      <pipe>GX_JSL_3000_FQJ_725</pipe>
+      <CPD type="gaussian">
+         <mean>[1 2 3 4 5 6 7 8]</mean>
+         <cov>[0.1 0.2 0.3 0.4 0.5 0.6 0.7 0.8]</cov>
+      </CPD>
+      <pipeid>[51 52 53]</pipeid>
+   </sensor>
+   <sensor name="212015090037" pipeNumber="1" type="SLYJ">
+      <pipe>GX_JSL_3000_HDL_493,GX_JSL_3000_HDL_494,GX_JSL_3000_HDL_684,GX_JSL_3000_HDL_685</pipe>
+      <CPD type="gaussian">
+         <mean>[1 2]</mean>
+         <cov>[0.1 0.2]</cov>
+      </CPD>
+      <pipeid>54</pipeid>
+   </sensor>
+   <sensor name="212015090063" pipeNumber="3" type="SLYJ">
+      <pipe>GX_JSL_3000_HDL_008</pipe>
+      <pipe>GX_JSL_3000_HDL_604</pipe>
+      <pipe>GX_JSL_3000_HDL_605,GX_JSL_3000_HDL_606</pipe>
+      <CPD type="gaussian">
+         <mean>[1 2 3 4 5 6 7 8]</mean>
+         <cov>[0.1 0.2 0.3 0.4 0.5 0.6 0.7 0.8]</cov>
+      </CPD>
+      <pipeid>[55 56 57]</pipeid>
+   </sensor>
+   <sensor name="212015090065" pipeNumber="3" type="SLYJ">
+      <pipe>GX_JSL_3000_HDL_572</pipe>
+      <pipe>GX_JSL_3000_HDL_026</pipe>
+      <pipe>GX_JSL_3000_HDL_570,GX_JSL_3000_HDL_571</pipe>
+      <CPD type="gaussian">
+         <mean>[1 2 3 4 5 6 7 8]</mean>
+         <cov>[0.1 0.2 0.3 0.4 0.5 0.6 0.7 0.8]</cov>
+      </CPD>
+      <pipeid>[58 59 60]</pipeid>
+   </sensor>
+   <sensor name="212015090035" pipeNumber="3" type="SLYJ">
+      <pipe>GX_JSL_3000_HDL_597</pipe>
+      <pipe>GX_JSL_3000_HDL_604</pipe>
+      <pipe>GX_JSL_3000_HDL_598,GX_JSL_3000_HDL_599,GX_JSL_3000_HDL_600,GX_JSL_3000_HDL_601,GX_JSL_3000_HDL_603</pipe>
+      <CPD type="gaussian">
+         <mean>[14.018 2 3 4 5 6 7 8]</mean>
+         <cov>[0.127 0.2 0.3 0.4 0.5 0.6 0.7 0.8]</cov>
+      </CPD>
+      <pipeid>[int32([61 56 62])]</pipeid>
+   </sensor>
+   <sensor name="212015090021" pipeNumber="2" type="SLYJ">
+      <pipe>GX_JSL_3000_FQJ_726,GX_JSL_3000_FQJ_727</pipe>
+      <pipe>GX_JSL_3000_FQJ_728,GX_JSL_3000_FQJ_729</pipe>
+      <CPD type="gaussian">
+         <mean>[1 2 3 4]</mean>
+         <cov>[0.1 0.2 0.3 0.4]</cov>
+      </CPD>
+      <pipeid>[63 64]</pipeid>
+   </sensor>
+   <sensor name="212015090058" pipeNumber="2" type="SLYJ">
+      <pipe>GX_JSL_3000_HDL_657</pipe>
+      <pipe>GX_JSL_3000_HDL_658</pipe>
+      <CPD type="gaussian">
+         <mean>[14 2 3 4]</mean>
+         <cov>[0.01 0.2 0.3 0.4]</cov>
+      </CPD>
+      <pipeid>[65 66]</pipeid>
+   </sensor>
+   <sensor name="212015090020" pipeNumber="1" type="SLYJ">
+      <pipe>GX_JSL_3000_HDL_656,GX_JSL_3000_HDL_655,GX_JSL_3000_HDL_654,GX_JSL_3000_HDL_653,GX_JSL_3000_HDL_652</pipe>
+      <CPD type="gaussian">
+         <mean>[1 2]</mean>
+         <cov>[0.1 0.2]</cov>
+      </CPD>
+      <pipeid>67</pipeid>
+   </sensor>
+   <sensor name="212015090053" pipeNumber="2" type="SLYJ">
+      <pipe>GX_JSL_3000_HDL_705</pipe>
+      <pipe>GX_JSL_3000_FQJ_702</pipe>
+      <CPD type="gaussian">
+         <mean>[1 2 3 4]</mean>
+         <cov>[0.1 0.2 0.3 0.4]</cov>
+      </CPD>
+      <pipeid>[68 69]</pipeid>
+   </sensor>
+   <sensor name="212015090005" pipeNumber="3" type="SLYJ">
+      <pipe>GX_JSL_3000_TEDL_363,GX_JSL_3000_TEDL_362</pipe>
+      <pipe>GX_JSL_3000_TEDL_367</pipe>
+      <pipe>GX_JSL_3000_TEDL_360,GX_JSL_3000_TEDL_361</pipe>
+      <CPD type="gaussian">
+         <mean>[13.946 2 3 4 5 6 7 8]</mean>
+         <cov>[0.452 0.2 0.3 0.4 0.5 0.6 0.7 0.8]</cov>
+      </CPD>
+      <pipeid>[70 71 72]</pipeid>
+   </sensor>
+   <sensor name="212015090050" pipeNumber="3" type="SLYJ">
+      <pipe>GX_JSL_3000_ZWL_404</pipe>
+      <pipe>GX_JSL_3000_ZWL_527</pipe>
+      <pipe>GX_JSL_3000_ZWL_403,GX_JSL_3000_ZWL_357,GX_JSL_3000_ZWL_528</pipe>
+      <CPD type="gaussian">
+         <mean>[13.804 2 3 4 5 6 7 8]</mean>
+         <cov>[0.161 0.2 0.3 0.4 0.5 0.6 0.7 0.8]</cov>
+      </CPD>
+      <pipeid>[73 74 75]</pipeid>
+   </sensor>
+   <sensor name="212015090060" pipeNumber="3" type="SLYJ">
+      <pipe>GX_JSL_3000_JYJ_448</pipe>
+      <pipe>GX_JSL_3000_JYJ_399</pipe>
+      <pipe>GX_JSL_3000_JYJ_398,GX_JSL_3000_JYJ_397,GX_JSL_3000_JYJ_396,GX_JSL_3000_JYJ_449</pipe>
+      <CPD type="gaussian">
+         <mean>[1 2 3 4 5 6 7 8]</mean>
+         <cov>[0.1 0.2 0.3 0.4 0.5 0.6 0.7 0.8]</cov>
+      </CPD>
+      <pipeid>[76 77 78]</pipeid>
+   </sensor>
+   <sensor name="212015090028" pipeNumber="3" type="SLYJ">
+      <pipe>GX_JSL_3000_YWL_338</pipe>
+      <pipe>GX_JSL_3000_YWL_385</pipe>
+      <pipe>GX_JSL_3000_YWL_387,GX_JSL_3000_YWL_386</pipe>
+      <CPD type="gaussian">
+         <mean>[1 2 3 4 5 6 7 8]</mean>
+         <cov>[0.1 0.2 0.3 0.4 0.5 0.6 0.7 0.8]</cov>
+      </CPD>
+      <pipeid>[79 80 81]</pipeid>
+   </sensor>
+   <sensor name="212015090066" pipeNumber="3" type="SLYJ">
+      <pipe>GX_JSL_3000_YWL_334</pipe>
+      <pipe>GX_JSL_3000_YWL_335</pipe>
+      <pipe>GX_JSL_3000_YWL_337,GX_JSL_3000_YWL_336</pipe>
+      <CPD type="gaussian">
+         <mean>[1 2 3 4 5 6 7 8]</mean>
+         <cov>[0.1 0.2 0.3 0.4 0.5 0.6 0.7 0.8]</cov>
+      </CPD>
+      <pipeid>[82 83 84]</pipeid>
+   </sensor>
+   <sensor name="212015090039" pipeNumber="3" type="SLYJ">
+      <pipe>GX_JSL_3000_HDL_005</pipe>
+      <pipe>GX_JSL_3000_HDL_705</pipe>
+      <pipe>GX_JSL_3000_HDL_004,GX_JSL_3000_HDL_003,GX_JSL_3000_HDL_002,GX_JSL_3000_HDL_001,GX_JSL_3000_HDL_706</pipe>
+      <CPD type="gaussian">
+         <mean>[11 2 3 4 5 6 7 8]</mean>
+         <cov>[0.01 0.2 0.3 0.4 0.5 0.6 0.7 0.8]</cov>
+      </CPD>
+      <pipeid>[int32([85 68 86])]</pipeid>
+   </sensor>
+   <sensor name="212015090030" pipeNumber="3" type="SLYJ">
+      <pipe>GX_JSL_3000_YWL_334</pipe>
+      <pipe>GX_JSL_3000_YWL_746</pipe>
+      <pipe>GX_JSL_3000_YWL_343,GX_JSL_3000_YWL_517,GX_JSL_3000_YWL_515,GX_JSL_3000_YWL_516</pipe>
+      <CPD type="gaussian">
+         <mean>[1 2 3 4 5 6 7 8]</mean>
+         <cov>[0.1 0.2 0.3 0.4 0.5 0.6 0.7 0.8]</cov>
+      </CPD>
+      <pipeid>[int32([82 87 88])]</pipeid>
+   </sensor>
+   <sensor name="212015090001" pipeNumber="2" type="SLYJ">
+      <pipe>GX_JSL_3000_ZWL_401,GX_JSL_3000_ZWL_400</pipe>
+      <pipe>GX_JSL_3000_ZWL_402,GX_JSL_3000_ZWL_426,GX_JSL_3000_ZWL_427</pipe>
+      <CPD type="gaussian">
+         <mean>[8.75 2 3 4]</mean>
+         <cov>[0.264 0.2 0.3 0.4]</cov>
+      </CPD>
+      <pipeid>[89 90]</pipeid>
+   </sensor>
+   <sensor name="212015090003" pipeNumber="3" type="SLYJ">
+      <pipe>GX_JSL_3000_ZWL_428</pipe>
+      <pipe>GX_JSL_3000_ZWL_431</pipe>
+      <pipe>GX_JSL_3000_ZWL_430,GX_JSL_3000_ZWL_429</pipe>
+      <CPD type="gaussian">
+         <mean>[1 2 3 4 5 6 7 8]</mean>
+         <cov>[0.1 0.2 0.3 0.4 0.5 0.6 0.7 0.8]</cov>
+      </CPD>
+      <pipeid>[91 92 93]</pipeid>
+   </sensor>
+   <sensor name="212015090072" pipeNumber="3" type="SLYJ">
+      <pipe>GX_JSL_3000_YGL_344</pipe>
+      <pipe>GX_JSL_3000_YGL_740</pipe>
+      <pipe>GX_JSL_3000_YGL_354,GX_JSL_3000_YGL_353,GX_JSL_3000_YGL_355</pipe>
+      <CPD type="gaussian">
+         <mean>[1 2 3 4 5 6 7 8]</mean>
+         <cov>[0.1 0.2 0.3 0.4 0.5 0.6 0.7 0.8]</cov>
+      </CPD>
+      <pipeid>[94 95 96]</pipeid>
+   </sensor>
+   <sensor name="212015090048" pipeNumber="3" type="SLYJ">
+      <pipe>GX_JSL_3000_YWL_389</pipe>
+      <pipe>GX_JSL_3000_YWL_383</pipe>
+      <pipe>GX_JSL_3000_YGL_540,GX_JSL_3000_YGL_522</pipe>
+      <CPD type="gaussian">
+         <mean>[1 2 3 4 5 6 7 8]</mean>
+         <cov>[0.1 0.2 0.3 0.4 0.5 0.6 0.7 0.8]</cov>
+      </CPD>
+      <pipeid>[97 98 99]</pipeid>
+   </sensor>
+   <sensor name="212015090018" pipeNumber="3" type="SLYJ">
+      <pipe>GX_JSL_3000_FQJ_379,GX_JSL_3000_FQJ_378,GX_JSL_3000_FQJ_380</pipe>
+      <pipe>GX_JSL_3000_FQJ_375</pipe>
+      <pipe>GX_JSL_3000_FQJ_703</pipe>
+      <CPD type="gaussian">
+         <mean>[1 2 3 4 5 6 7 8]</mean>
+         <cov>[0.1 0.2 0.3 0.4 0.5 0.6 0.7 0.8]</cov>
+      </CPD>
+      <pipeid>[100 101 102]</pipeid>
+   </sensor>
+   <sensor name="212015090052" pipeNumber="2" type="SLYJ">
+      <pipe>GX_JSL_3000_FQJ_381</pipe>
+      <pipe>GX_JSL_3000_FQJ_703</pipe>
+      <CPD type="gaussian">
+         <mean>[1 2 3 4]</mean>
+         <cov>[0.1 0.2 0.3 0.4]</cov>
+      </CPD>
+      <pipeid>[int32([103 102])]</pipeid>
+   </sensor>
+   <sensor name="212015090024" pipeNumber="3" type="SLYJ">
+      <pipe>GX_JSL_3000_YWL_512</pipe>
+      <pipe>GX_JSL_3000_YWL_331</pipe>
+      <pipe>GX_JSL_3000_YWL_514,GX_JSL_3000_YWL_513</pipe>
+      <CPD type="gaussian">
+         <mean>[1 2 3 4 5 6 7 8]</mean>
+         <cov>[0.1 0.2 0.3 0.4 0.5 0.6 0.7 0.8]</cov>
+      </CPD>
+      <pipeid>[104 105 106]</pipeid>
+   </sensor>
+   <sensor name="212015090074" pipeNumber="3" type="SLYJ">
+      <pipe>GX_JSL_3000_YWL_512</pipe>
+      <pipe>GX_JSL_3000_TEDL_364</pipe>
+      <pipe>GX_JSL_3000_YWL_553,GX_JSL_3000_YGL_548,GX_JSL_3000_YWL_552</pipe>
+      <CPD type="gaussian">
+         <mean>[14.25 2 3 4 5 6 7 8]</mean>
+         <cov>[0.191 0.2 0.3 0.4 0.5 0.6 0.7 0.8]</cov>
+      </CPD>
+      <pipeid>[int32([104 107 108])]</pipeid>
+   </sensor>
+   <sensor name="212015090076" pipeNumber="3" type="SLYJ">
+      <pipe>GX_JSL_3000_ZWL_500</pipe>
+      <pipe>GX_JSL_3000_ZWL_404</pipe>
+      <pipe>GX_JSL_3000_ZWL_499,GX_JSL_3000_ZWL_406,GX_JSL_3000_ZWL_405</pipe>
+      <CPD type="gaussian">
+         <mean>[14.018 2 3 4 5 6 7 8]</mean>
+         <cov>[0.018 0.2 0.3 0.4 0.5 0.6 0.7 0.8]</cov>
+      </CPD>
+      <pipeid>[int32([109 73 110])]</pipeid>
+   </sensor>
+   <sensor name="212015090049" pipeNumber="3" type="SLYJ">
+      <pipe>GX_JSL_3000_YWL_341</pipe>
+      <pipe>GX_JSL_3000_YWL_331</pipe>
+      <pipe>GX_JSL_3000_YWL_333,GX_JSL_3000_YWL_332</pipe>
+      <CPD type="gaussian">
+         <mean>[1 2 3 4 5 6 7 8]</mean>
+         <cov>[0.1 0.2 0.3 0.4 0.5 0.6 0.7 0.8]</cov>
+      </CPD>
+      <pipeid>[int32([111 105 112])]</pipeid>
+   </sensor>
+   <sensor name="212015090011" pipeNumber="1" type="SLYJ">
+      <pipe>GX_JSL_3000_LGL_915</pipe>
+      <CPD type="gaussian">
+         <mean>[1 2]</mean>
+         <cov>[0.1 0.2]</cov>
+      </CPD>
+      <pipeid>113</pipeid>
+   </sensor>
+   <sensor name="212015090070" pipeNumber="2" type="SLYJ">
+      <pipe>GX_JSL_3000_LGL_252</pipe>
+      <pipe>GX_JSL_3000_LGL_114,GX_JSL_3000_LGL_115,GX_JSL_3000_LGL_113,GX_JSL_3000_LGL_112</pipe>
+      <CPD type="gaussian">
+         <mean>[13.714 2 3 4]</mean>
+         <cov>[0.208 0.2 0.3 0.4]</cov>
+      </CPD>
+      <pipeid>[114 115]</pipeid>
+   </sensor>
+   <sensor name="212015090054" pipeNumber="3" type="SLYJ">
+      <pipe>GX_JSL_3000_LGL_226,GX_JSL_3000_LGL_225</pipe>
+      <pipe>GX_JSL_3000_LGL_227</pipe>
+      <pipe>GX_JSL_3000_LGL_222</pipe>
+      <CPD type="gaussian">
+         <mean>[1 2 3 4 5 6 7 8]</mean>
+         <cov>[0.1 0.2 0.3 0.4 0.5 0.6 0.7 0.8]</cov>
+      </CPD>
+      <pipeid>[116 117 118]</pipeid>
+   </sensor>
+   <sensor name="212015090068" pipeNumber="1" type="SLYJ">
+      <pipe>GX_JSL_3000_LGL_160,GX_JSL_3000_LGL_161,GX_JSL_3000_LGL_162,GX_JSL_3000_LGL_159,GX_JSL_3000_LGL_158</pipe>
+      <CPD type="gaussian">
+         <mean>[1 2]</mean>
+         <cov>[0.1 0.2]</cov>
+      </CPD>
+      <pipeid>119</pipeid>
+   </sensor>
+   <sensor name="212015090046" pipeNumber="3" type="SLYJ">
+      <pipe>GX_JSL_3000_LGL_208,GX_JSL_3000_LGL_209,GX_JSL_3000_LGL_210,GX_JSL_3000_LGL_211</pipe>
+      <pipe>GX_JSL_3000_LGL_206</pipe>
+      <pipe>GX_JSL_3000_LGL_207</pipe>
+      <CPD type="gaussian">
+         <mean>[15.036 2 3 4 5 6 7 8]</mean>
+         <cov>[0.071 0.2 0.3 0.4 0.5 0.6 0.7 0.8]</cov>
+      </CPD>
+      <pipeid>[120 121 122]</pipeid>
+   </sensor>
+   <sensor name="212015090064" pipeNumber="3" type="SLYJ">
+      <pipe>GX_JSL_3000_LGL_132,GX_JSL_3000_LGL_133,GX_JSL_3000_LGL_134,GX_JSL_3000_LGL_135</pipe>
+      <pipe>GX_JSL_3000_LGL_129</pipe>
+      <pipe>GX_JSL_3000_LGL_130</pipe>
+      <CPD type="gaussian">
+         <mean>[1 2 3 4 5 6 7 8]</mean>
+         <cov>[0.1 0.2 0.3 0.4 0.5 0.6 0.7 0.8]</cov>
+      </CPD>
+      <pipeid>[123 124 125]</pipeid>
+   </sensor>
+   <sensor name="212015090061" pipeNumber="3" type="SLYJ">
+      <pipe>GX_JSL_3000_LGL_229</pipe>
+      <pipe>GX_JSL_3000_LGL_230</pipe>
+      <pipe>GX_JSL_3000_LGL_232,GX_JSL_3000_LGL_233</pipe>
+      <CPD type="gaussian">
+         <mean>[14.054 2 3 4 5 6 7 8]</mean>
+         <cov>[0.052 0.2 0.3 0.4 0.5 0.6 0.7 0.8]</cov>
+      </CPD>
+      <pipeid>[126 127 128]</pipeid>
+   </sensor>
+   <sensor name="212015090038" pipeNumber="3" type="SLYJ">
+      <pipe>GX_JSL_3000_LGL_550,GX_JSL_3000_LGL_008,GX_JSL_3000_LGL_007,GX_JSL_3000_LGL_009</pipe>
+      <pipe>GX_JSL_3000_LGL_006</pipe>
+      <pipe>GX_JSL_3000_LGL_023,GX_JSL_3000_LGL_024,GX_JSL_3000_LGL_025</pipe>
+      <CPD type="gaussian">
+         <mean>[16 2 3 4 5 6 7 8]</mean>
+         <cov>[0.01 0.2 0.3 0.4 0.5 0.6 0.7 0.8]</cov>
+      </CPD>
+      <pipeid>[129 130 131]</pipeid>
+   </sensor>
+   <sensor name="212015090073" pipeNumber="3" type="SLYJ">
+      <pipe>GX_JSL_3000_LGL_949,GX_JSL_3000_LGL_950,GX_JSL_3000_LGL_951</pipe>
+      <pipe>GX_JSL_3000_LGL_945</pipe>
+      <pipe>GX_JSL_3000_LGL_946,GX_JSL_3000_LGL_947,GX_JSL_3000_LGL_948</pipe>
+      <CPD type="gaussian">
+         <mean>[1 2 3 4 5 6 7 8]</mean>
+         <cov>[0.1 0.2 0.3 0.4 0.5 0.6 0.7 0.8]</cov>
+      </CPD>
+      <pipeid>[132 133 134]</pipeid>
+   </sensor>
+   <sensor name="212015090047" pipeNumber="3" type="SLYJ">
+      <pipe>GX_JSL_3000_LGL_107,GX_JSL_3000_LGL_103,GX_JSL_3000_LGL_104,GX_JSL_3000_LGL_105,GX_JSL_3000_LGL_106</pipe>
+      <pipe>GX_JSL_3000_LGL_085</pipe>
+      <pipe>GX_JSL_3000_LGL_086</pipe>
+      <CPD type="gaussian">
+         <mean>[1 2 3 4 5 6 7 8]</mean>
+         <cov>[0.1 0.2 0.3 0.4 0.5 0.6 0.7 0.8]</cov>
+      </CPD>
+      <pipeid>[135 136 137]</pipeid>
+   </sensor>
+   <sensor name="212015090051" pipeNumber="3" type="SLYJ">
+      <pipe>GX_JSL_3000_LGL_968,GX_JSL_3000_LGL_969,GX_JSL_3000_LGL_970,GX_JSL_3000_LGL_971</pipe>
+      <pipe>GX_JSL_3000_LGL_942,GX_JSL_3000_LGL_943</pipe>
+      <pipe>GX_JSL_3000_LGL_941</pipe>
+      <CPD type="gaussian">
+         <mean>[1 2 3 4 5 6 7 8]</mean>
+         <cov>[0.1 0.2 0.3 0.4 0.5 0.6 0.7 0.8]</cov>
+      </CPD>
+      <pipeid>[138 139 140]</pipeid>
+   </sensor>
+   <sensor name="212015090016" pipeNumber="3" type="SLYJ">
+      <pipe>GX_JSL_3000_LGL_151,GX_JSL_3000_LGL_171,GX_JSL_3000_LGL_165,GX_JSL_3000_LGL_166</pipe>
+      <pipe>GX_JSL_3000_LGL_150</pipe>
+      <pipe>GX_JSL_3000_LGL_152</pipe>
+      <CPD type="gaussian">
+         <mean>[1 2 3 4 5 6 7 8]</mean>
+         <cov>[0.1 0.2 0.3 0.4 0.5 0.6 0.7 0.8]</cov>
+      </CPD>
+      <pipeid>[141 142 143]</pipeid>
+   </sensor>
+   <sensor name="212015090010" pipeNumber="3" type="SLYJ">
+      <pipe>GX_JSL_3000_LGL_194,GX_JSL_3000_LGL_195,GX_JSL_3000_LGL_196,GX_JSL_3000_LGL_197</pipe>
+      <pipe>GX_JSL_3000_LGL_173</pipe>
+      <pipe>GX_JSL_3000_LGL_174</pipe>
+      <CPD type="gaussian">
+         <mean>[13.982 2 3 4 5 6 7 8]</mean>
+         <cov>[0.018 0.2 0.3 0.4 0.5 0.6 0.7 0.8]</cov>
+      </CPD>
+      <pipeid>[144 145 146]</pipeid>
+   </sensor>
+   <sensor name="212015090023" pipeNumber="3" type="SLYJ">
+      <pipe>GX_JSL_3000_LGL_548,GX_JSL_3000_LGL_964,GX_JSL_3000_LGL_965,GX_JSL_3000_LGL_966</pipe>
+      <pipe>GX_JSL_3000_LGL_549</pipe>
+      <pipe>GX_JSL_3000_LGL_953</pipe>
+      <CPD type="gaussian">
+         <mean>[1 2 3 4 5 6 7 8]</mean>
+         <cov>[0.1 0.2 0.3 0.4 0.5 0.6 0.7 0.8]</cov>
+      </CPD>
+      <pipeid>[147 148 149]</pipeid>
+   </sensor>
+   <sensor name="212015090077" pipeNumber="3" type="SLYJ">
+      <pipe>GX_JSL_3000_LGL_163,GX_JSL_3000_LGL_164</pipe>
+      <pipe>GX_JSL_3000_LGL_155</pipe>
+      <pipe>GX_JSL_3000_LGL_547</pipe>
+      <CPD type="gaussian">
+         <mean>[1 2 3 4 5 6 7 8]</mean>
+         <cov>[0.1 0.2 0.3 0.4 0.5 0.6 0.7 0.8]</cov>
+      </CPD>
+      <pipeid>[150 151 152]</pipeid>
+   </sensor>
+   <sensor name="212015090017" pipeNumber="3" type="SLYJ">
+      <pipe>GX_JSL_3000_LGL_097,GX_JSL_3000_LGL_095,GX_JSL_3000_LGL_096,GX_JSL_3000_LGL_098</pipe>
+      <pipe>GX_JSL_3000_LGL_551,GX_JSL_3000_LGL_088</pipe>
+      <pipe>GX_JSL_3000_LGL_090</pipe>
+      <CPD type="gaussian">
+         <mean>[1 2 3 4 5 6 7 8]</mean>
+         <cov>[0.1 0.2 0.3 0.4 0.5 0.6 0.7 0.8]</cov>
+      </CPD>
+      <pipeid>[153 154 155]</pipeid>
+   </sensor>
+   <sensor name="212015090045" pipeNumber="3" type="SLYJ">
+      <pipe>GX_JSL_3000_LGL_234,GX_JSL_3000_LGL_235,GX_JSL_3000_LGL_236</pipe>
+      <pipe>GX_JSL_3000_LGL_220</pipe>
+      <pipe>GX_JSL_3000_LGL_221</pipe>
+      <CPD type="gaussian">
+         <mean>[14.946 2 3 4 5 6 7 8]</mean>
+         <cov>[0.052 0.2 0.3 0.4 0.5 0.6 0.7 0.8]</cov>
+      </CPD>
+      <pipeid>[156 157 158]</pipeid>
+   </sensor>
+   <sensor name="212015090034" pipeNumber="1" type="SLYJ">
+      <pipe>GX_JSL_3000_LGL_262,GX_JSL_3000_LGL_249</pipe>
+      <CPD type="gaussian">
+         <mean>[15 2]</mean>
+         <cov>[0.01 0.2]</cov>
+      </CPD>
+      <pipeid>159</pipeid>
+   </sensor>
+   <sensor name="212015090056" pipeNumber="3" type="SLYJ">
+      <pipe>GX_JSL_3000_LGL_190,GX_JSL_3000_LGL_191,GX_JSL_3000_LGL_192,GX_JSL_3000_LGL_193</pipe>
+      <pipe>GX_JSL_3000_LGL_177,GX_JSL_3000_LGL_176</pipe>
+      <pipe>GX_JSL_3000_LGL_178</pipe>
+      <CPD type="gaussian">
+         <mean>[12.964 2 3 4 5 6 7 8]</mean>
+         <cov>[0.035 0.2 0.3 0.4 0.5 0.6 0.7 0.8]</cov>
+      </CPD>
+      <pipeid>[160 161 162]</pipeid>
+   </sensor>
+   <sensor name="212015090043" pipeNumber="3" type="SLYJ">
+      <pipe>GX_JSL_3000_LGL_993</pipe>
+      <pipe>GX_JSL_3000_LGL_982</pipe>
+      <pipe>GX_JSL_3000_LGL_983</pipe>
+      <CPD type="gaussian">
+         <mean>[12.054 2 3 4 5 6 7 8]</mean>
+         <cov>[0.088 0.2 0.3 0.4 0.5 0.6 0.7 0.8]</cov>
+      </CPD>
+      <pipeid>[163 164 165]</pipeid>
+   </sensor>
+   <sensor name="212015090008" pipeNumber="3" type="SLYJ">
+      <pipe>GX_JSL_3000_LGL_238</pipe>
+      <pipe>GX_JSL_3000_LGL_228</pipe>
+      <pipe>GX_JSL_3000_LGL_229</pipe>
+      <CPD type="gaussian">
+         <mean>[1 2 3 4 5 6 7 8]</mean>
+         <cov>[0.1 0.2 0.3 0.4 0.5 0.6 0.7 0.8]</cov>
+      </CPD>
+      <pipeid>[int32([166 167 126])]</pipeid>
+   </sensor>
+   <sensor name="212015090036" pipeNumber="3" type="SLYJ">
+      <pipe>GX_JSL_3000_LGL_064</pipe>
+      <pipe>GX_JSL_3000_LGL_063</pipe>
+      <pipe>GX_JSL_3000_LGL_065</pipe>
+      <CPD type="gaussian">
+         <mean>[1 2 3 4 5 6 7 8]</mean>
+         <cov>[0.1 0.2 0.3 0.4 0.5 0.6 0.7 0.8]</cov>
+      </CPD>
+      <pipeid>[168 169 170]</pipeid>
+   </sensor>
+   <sensor name="212015090013" pipeNumber="3" type="SLYJ">
+      <pipe>GX_JSL_3000_LGL_925,GX_JSL_3000_LGL_926,GX_JSL_3000_LGL_927,GX_JSL_3000_LGL_937</pipe>
+      <pipe>GX_JSL_3000_LGL_924</pipe>
+      <pipe>GX_JSL_3000_LGL_938</pipe>
+      <CPD type="gaussian">
+         <mean>[1 2 3 4 5 6 7 8]</mean>
+         <cov>[0.1 0.2 0.3 0.4 0.5 0.6 0.7 0.8]</cov>
+      </CPD>
+      <pipeid>[171 172 173]</pipeid>
+   </sensor>
+   <sensor name="212015090041" pipeNumber="3" type="SLYJ">
+      <pipe>GX_JSL_3000_LGL_035,GX_JSL_3000_LGL_032,GX_JSL_3000_LGL_033,GX_JSL_3000_LGL_034</pipe>
+      <pipe>GX_JSL_3000_LGL_028</pipe>
+      <pipe>GX_JSL_3000_LGL_029</pipe>
+      <CPD type="gaussian">
+         <mean>[13 2 3 4 5 6 7 8]</mean>
+         <cov>[0.01 0.2 0.3 0.4 0.5 0.6 0.7 0.8]</cov>
+      </CPD>
+      <pipeid>[174 175 176]</pipeid>
+   </sensor>
+   <sensor name="212015090031" pipeNumber="3" type="SLYJ">
+      <pipe>GX_JSL_3000_LGL_186,GX_JSL_3000_LGL_187</pipe>
+      <pipe>GX_JSL_3000_LGL_181</pipe>
+      <pipe>GX_JSL_3000_LGL_198</pipe>
+      <CPD type="gaussian">
+         <mean>[14 2 3 4 5 6 7 8]</mean>
+         <cov>[0.01 0.2 0.3 0.4 0.5 0.6 0.7 0.8]</cov>
+      </CPD>
+      <pipeid>[177 178 179]</pipeid>
+   </sensor>
+   <sensor name="212015090062" pipeNumber="3" type="SLYJ">
+      <pipe>GX_JSL_3000_LGL_069,GX_JSL_3000_LGL_067,GX_JSL_3000_LGL_068,GX_JSL_3000_LGL_070</pipe>
+      <pipe>GX_JSL_3000_LGL_058</pipe>
+      <pipe>GX_JSL_3000_LGL_057</pipe>
+      <CPD type="gaussian">
+         <mean>[1 2 3 4 5 6 7 8]</mean>
+         <cov>[0.1 0.2 0.3 0.4 0.5 0.6 0.7 0.8]</cov>
+      </CPD>
+      <pipeid>[180 181 182]</pipeid>
+   </sensor>
+   <sensor name="212015090033" pipeNumber="3" type="SLYJ">
+      <pipe>GX_JSL_3000_LGL_216,GX_JSL_3000_LGL_217</pipe>
+      <pipe>GX_JSL_3000_LGL_204</pipe>
+      <pipe>GX_JSL_3000_LGL_205</pipe>
+      <CPD type="gaussian">
+         <mean>[7.125 2 3 4 5 6 7 8]</mean>
+         <cov>[0.293 0.2 0.3 0.4 0.5 0.6 0.7 0.8]</cov>
+      </CPD>
+      <pipeid>[183 184 185]</pipeid>
+   </sensor>
+   <sensor name="212015090042" pipeNumber="3" type="SLYJ">
+      <pipe>GX_JSL_3000_LGL_011,GX_JSL_3000_LGL_012,GX_JSL_3000_LGL_013</pipe>
+      <pipe>GX_JSL_3000_LGL_998</pipe>
+      <pipe>GX_JSL_3000_LGL_997</pipe>
+      <CPD type="gaussian">
+         <mean>[1 2 3 4 5 6 7 8]</mean>
+         <cov>[0.1 0.2 0.3 0.4 0.5 0.6 0.7 0.8]</cov>
+      </CPD>
+      <pipeid>[186 187 188]</pipeid>
+   </sensor>
+</current_Water_info>

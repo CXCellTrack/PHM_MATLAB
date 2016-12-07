@@ -1,0 +1,13 @@
+1、由于中文名出现了乱码的问题，因此将原来的中文文件夹改成了英文：
+
+Fault_Diagnosis - 故障诊断
+Fault_Prediction - 故障预测
+Health_Evaluation - 健康度评估
+
+2、Precompiled EXE 文件中存放的是 linkdb_test.bat，用来测试数据库连接
+
+3、Fault_Prediction\predict_config.ini 中可以用来修改诊断触发的时间（时间太短会引发阻塞）
+
+4、Fault_Diagnosis\diag_post.bat 用于执行诊断完成后的内容（写入alarm表等）
+
+5、开始运行前，需要修改 DBinfo.ini 中的数据库用户名和密码等信息

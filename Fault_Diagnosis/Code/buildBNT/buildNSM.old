@@ -1,0 +1,101 @@
+function [ NSM all_name n_fault s_fault n_pipe n_sensor ] = buildNSM( Dmatrix, pipeclass )
+% ======================================================================= %
+% C.X. 2015.9.9
+% 这个代码针对不同的管线是不一样的
+% s_fault代表单个管线具有的故障数目，给水管线中为3
+% fs代表故障之间的连接结构
+% 此外还有故障与传感器的连接结构，不同的管线都不一样
+% 因此文件名称设为 buildNSM_Water
+% 对于污水管线，有 buildNSM_Sewage
+% 对于雨水管线，有 buildNSM_Rain
+% 对于燃气管线，有 buildNSM_Gas
+% 对于热力管线，有 buildNSM_Heat
+% ======================================================================= %
+
+[ n_sensor, width ] = size(Dmatrix);
+
+flag = ~isemptycell(Dmatrix);
+pipe_id = zeros(size(Dmatrix)); % pipe_id 为D矩阵对应位置的管线组编号
+all_name = {}; % all_name 为bnet中管线编号与管线实际编号的对照表
+
+n_pipe = 0;
+for h=1:n_sensor
+    for w=2:width
+        if flag(h,w)
+            pipename = Dmatrix{h,w};
+%             pipename = str2num(Dmatrix{h,w});
+            ind = find(strncmp(all_name,pipename,numel(pipename)));
+            if isempty(ind)  % 如果名称有重复，说明该管线被多个传感器监听
+                n_pipe = n_pipe + 1; % 管线总数
+                all_name{n_pipe,1} = pipename;
+                pipe_id(h,w) = n_pipe; 
+            else
+                pipe_id(h,w) = ind;
+            end
+        end
+    end
+end
+
+switch pipeclass
+    case 'Water'
+        [ NSM s_fault ] = nsmwater( n_pipe, n_sensor, pipe_id ); % s_fault为每个管线含有的故障数目
+    case 'Sewage'
+        [ NSM s_fault ] = nsmsewage( n_pipe, n_sensor, pipe_id );
+    case 'Rain'
+        
+    case 'Gas'
+        
+end
+         
+n_fault = n_pipe*s_fault; % 总故障节点个数
+
+
+
+%% 给水NSM矩阵
+function [ NSM s_fault ] = nsmwater( n_pipe, n_sensor, pipe_id )
+
+s_fault = 3;
+n_fault = s_fault*n_pipe;
+n_node = n_fault + n_sensor; % 总节点个数
+
+NSM = false(n_node, n_node); % 贝叶斯网络结构
+fs = [ 1 2; % 1->2, 2->3
+       2 3 ]; % 故障连接结构 fault-structure
+   
+for i=1:s_fault:n_fault % i代表每个管线腐蚀的编号
+    % 故障1和2没有连接到传感器
+    for j=1:2
+        NSM(i+fs(j,1)-1,i+fs(j,2)-1) = 1;
+    end
+    % 故障3连接到若干个传感器上
+    thispipe = ceil(i/s_fault);
+    [sensor_id, ~] = find(pipe_id==thispipe);
+    NSM(i+s_fault-1, sensor_id'+n_fault) = 1;
+end
+   
+%% 污水NSM矩阵
+function [ NSM s_fault ] = nsmsewage( n_pipe, n_sensor, pipe_id )
+
+s_fault = 1;
+n_fault = s_fault*n_pipe;
+n_node = n_fault + n_sensor; % 总节点个数
+
+NSM = false(n_node, n_node); % 贝叶斯网络结构
+   
+for i=1:s_fault:n_fault % i代表每个管线腐蚀的编号
+    % 故障1连接到若干个传感器上
+    thispipe = ceil(i/s_fault);
+    [sensor_id, ~] = find(pipe_id==thispipe);
+    NSM(i+s_fault-1, sensor_id+n_fault) = 1;
+end
+
+
+
+
+
+
+
+
+
+
+

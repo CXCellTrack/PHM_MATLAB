@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Sewage_info time="2016.4.7" type="污水管线"> 
+
+   <!-- 单个管线的故障结构描述 "fault1" 
+   其中 fault1 可以被传感器检测，sensorType="WSYW"
+   -->
+	<faultStructure faultNumber="1" root="污水阻塞">
+		<fault name="污水阻塞" sensorType="WSYW">
+			<next>None</next>
+			<CPD>[0.5 0.5]</CPD>
+		</fault>
+	</faultStructure>
+   
+	<!-- WSYW代表污水液位传感器 -->
+	<sensor name="112015090054" type="WSYW" pipeNumber="1"> 
+	  <pipe>GX_WSL_4100_LGL_338</pipe>
+	  <CPD type="gaussian">		<!-- 如果是离散节点则直接将值写在CPD中 -->
+		 <mean>[10 20]</mean>
+		 <cov>[0.1 0.2]</cov>
+	  </CPD>
+	</sensor>
+	<sensor name="112015090053" type="WSYW" pipeNumber="1"> 
+	  <pipe>GX_WSL_4100_LGL_301,GX_WSL_4100_LGL_351,GX_WSL_4100_LGL_379,GX_WSL_4100_LGL_275</pipe>
+	  <CPD type="gaussian">
+		 <mean>[10 20]</mean>
+		 <cov>[0.1 0.2]</cov>
+	  </CPD>
+	</sensor>
+	<sensor name="112015090056" type="WSYW" pipeNumber="1"> 
+	  <pipe>GX_WSL_4100_LGL_361,GX_WSL_4100_LGL_330,GX_WSL_4100_LGL_315</pipe>
+	  <CPD type="gaussian">
+		 <mean>[10 20]</mean>
+		 <cov>[0.1 0.2]</cov>
+	  </CPD>
+	</sensor>
+	<sensor name="112015090033" type="WSYW" pipeNumber="1"> 
+	  <pipe>GX_WSL_4100_ZWL_014,GX_WSL_4100_ZWL_015</pipe>
+	  <CPD type="gaussian">
+		 <mean>[10 20]</mean>
+		 <cov>[0.1 0.2]</cov>
+	  </CPD>
+	</sensor>	
+	<sensor name="112015090063" type="WSYW" pipeNumber="1"> 
+	  <pipe>GX_WSL_4100_HDL_027,GX_WSL_4100_HDL_028</pipe>
+	  <CPD type="gaussian">
+		 <mean>[10 20]</mean>
+		 <cov>[0.1 0.2]</cov>
+	  </CPD>
+	</sensor>
+	<sensor name="112015090061" type="WSYW" pipeNumber="1"> 
+	  <pipe>GX_WSL_4100_JBJ_048</pipe>
+	  <CPD type="gaussian">
+		 <mean>[10 20]</mean>
+		 <cov>[0.1 0.2]</cov>
+	  </CPD>
+	</sensor>	
+	<sensor name="112015090065" type="WSYW" pipeNumber="1"> 
+	  <pipe>GX_WSL_4100_JYJ_079,GX_WSL_4100_JYJ_077,GX_WSL_4100_JYJ_040,GX_WSL_4100_JYJ_078</pipe>
+	  <CPD type="gaussian">
+		 <mean>[10 20]</mean>
+		 <cov>[0.1 0.2]</cov>
+	  </CPD>
+	</sensor>		
+	<sensor name="112015090038" type="WSYW" pipeNumber="1"> 
+	  <pipe>GX_WSL_4100_JYJ_095,GX_WSL_4100_JYJ_092,GX_WSL_4100_JYJ_094</pipe>
+	  <CPD type="gaussian">
+		 <mean>[10 20]</mean>
+		 <cov>[0.1 0.2]</cov>
+	  </CPD>
+	</sensor>		
+	<sensor name="112015090066" type="WSYW" pipeNumber="1"> 
+	  <pipe>GX_WSL_4100_JYJ_097,GX_WSL_4100_JYJ_098,GX_WSL_4100_JYJ_099</pipe>
+	  <CPD type="gaussian">
+		 <mean>[10 20]</mean>
+		 <cov>[0.1 0.2]</cov>
+	  </CPD>
+	</sensor>			
+	<sensor name="112015090064" type="WSYW" pipeNumber="1"> 
+	  <pipe>GX_WSL_4100_LGL_291,GX_WSL_4100_LGL_406</pipe>
+	  <CPD type="gaussian">
+		 <mean>[10 20]</mean>
+		 <cov>[0.1 0.2]</cov>
+	  </CPD>
+	</sensor>				
+	<sensor name="112015090037" type="WSYW" pipeNumber="1"> 
+	  <pipe>GX_WSL_4100_LGL_397</pipe>
+	  <CPD type="gaussian">
+		 <mean>[10 20]</mean>
+		 <cov>[0.1 0.2]</cov>
+	  </CPD>
+	</sensor>		
+
+	
+	
+</Sewage_info>

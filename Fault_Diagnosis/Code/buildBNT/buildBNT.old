@@ -1,0 +1,61 @@
+function  [ bnet Dmatrix all_name n_fault s_fault n_pipe n_sensor ] = buildBNT( pipeclass )
+
+diagpath = getphmpath('diag');
+
+% 根据管线种类选择地址
+nsm_path = [diagpath, '\',pipeclass,'\data\mat\NSM_',pipeclass,'.mat'];
+Dmatrix_path = [diagpath, '\',pipeclass,'\data\udf\Dmatrix_',pipeclass,'.txt'];
+cpd_path = [diagpath, '\',pipeclass,'\data\udf\CPD_',pipeclass,'.txt'];
+
+% if ~exist(bnet_path, 'file')
+    %% 第一步：读入人工制作的D矩阵，转变为NSM矩阵
+
+    if ~exist( nsm_path, 'file' )
+        % 如果不存在NSM矩阵，则从D矩阵中创建并保存
+        Dmatrix = read_Dmatrix( Dmatrix_path );
+        [ NSM all_name n_fault s_fault n_pipe n_sensor ] = buildNSM( Dmatrix, pipeclass );
+%         [ info NSM all_name ] = buildBNT_by_xml( pipeclass );
+        save( nsm_path, 'NSM', 'Dmatrix', 'all_name', 'n_fault', 's_fault', 'n_pipe', 'n_sensor' );
+    end
+    load( nsm_path );
+
+    %% 第二步：定义节点类型、节点状态数、观测节点，建立贝叶斯网络
+
+    % ------------------- 1、定义节点类型和状态数 ---------------------- %
+    % 需要通过CPD中的数目判断传感器节点是否为高斯（默认故障节点为离散）
+    CPD = read_Dmatrix(cpd_path);
+    if sum(sum(strncmp(CPD,'fault',5)))~=s_fault
+        errorlog([pipeclass,'-CPD表的故障数目与预设值',num2str(s_fault),'不一致！']);
+    end
+    CPD = CPD(s_fault+1:end,:); % 去掉前几行故障节点cpd
+    if size(CPD,1)~=n_sensor
+        errorlog([pipeclass,'-CPD表的传感器数目与D矩阵表中数目',num2str(n_sensor),'不一致！']);
+    end
+    
+    % ------------------- 判断并修改离散节点与连续节点 -------------------- %
+    % 节点的状态数，此处离散节点为2，连续节点为1
+    node_size = [ 2*ones(1,n_fault), ones(1,n_sensor) ];
+    discrete_nodes = 1:n_fault; % 离散节点编号 连续节点的编号会根据（全体-离散）自动寻找
+    % 判断第三格是否为空，从而找出传感器中的离散节点
+    dnode_in_sensor = find(cellfun(@(x) isempty(x), CPD(:,3)));
+    for ii=dnode_in_sensor'
+        node_size(n_fault+ii) = 2;
+        discrete_nodes = [discrete_nodes, n_fault+ii]; % 修改ndsize和dnodes
+    end
+
+    n_node = n_fault + n_sensor;
+%     observed_nodes = n_fault+1:n_node; % 后面的传感器节点为可观测节点
+    sensor_names = [repmat({'pipe'},1,n_fault), Dmatrix(:,1)'];
+    bnet = mk_bnet( NSM, node_size, 'discrete', discrete_nodes, 'names', sensor_names); % bnet是一个结构体
+
+    %% 第三步：保存bnet等变量
+%     save( bnet_path, 'bnet', 'all_name', 'n_fault', 's_fault', 'n_pipe', 'n_sensor');
+    
+end
+
+% load( bnet_path );
+
+
+
+
+

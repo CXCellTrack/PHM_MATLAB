@@ -1,0 +1,28 @@
+function [ A flag ] = AutoSetField( A, tline, ind, num_or_str, HOME, HOME_ADDR)
+
+% 这个函数用于从config文件中读取不同变量的赋值
+% 并对应到struct A的各个field上
+% 注意：需要提前设定好A的各个field名称，并赋给A_names
+% num_or_str只能是'num'或者'str'，控制输出域内值类型
+
+narginchk(4,6);
+
+A_names = fieldnames(A);
+flag = 0; % 退出标识符，为1说明找到field，进入下一行
+for i=1:numel(A_names)
+    if strncmp(A_names{i},  tline, numel(A_names{i}))
+        if ~isempty(strfind(tline, ['{',HOME,'}'])) % 将相对路径{HOME}替换为绝对路径HOME_ADDR
+            tline = strrep(tline, ['{',HOME,'}'], HOME_ADDR);
+        end
+        
+        tline = tline(ind:end); % 截取等号后面的部分
+        if strcmp(num_or_str, 'num')
+            tline = str2num(tline);
+        end
+        A = setfield(A, A_names{i}, tline);
+        flag = 1;
+        break;
+    end
+end
+
+end

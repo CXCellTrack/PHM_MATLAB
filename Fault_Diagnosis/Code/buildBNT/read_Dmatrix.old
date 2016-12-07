@@ -1,0 +1,83 @@
+function Dmatrix = read_Dmatrix( Dmatrix_path )
+
+% 这个文件也需要根据不同的管线进行定制
+% 因此名称上要加以区别
+% Dmatrix_addr = 'C:\Users\Administrator\Desktop\Dmatrix.txt';
+
+fidin = fopen( Dmatrix_path, 'r'); % 打开人工分配的D矩阵文件
+if fidin==-1
+    fidin = alterPath(fidin);
+    errorlog(['打开文件',Dmatrix_path,'失败！']);
+end
+
+Dmatrix = cell(100,7); % 设置最大监听管线数目7
+iter = 0;
+
+% 可以选择使用新方法（textscan全部读入，好！）或旧方法（逐行读入）
+new_method = 1;
+if new_method
+    READIN = textscan(fidin, '%s','CommentStyle','#','Delimiter','\n');
+    for h=1:size(READIN{1},1)
+        if isempty( READIN{1}{h} )
+            continue
+        end
+        strcell = strsplit(':', READIN{1}{h}); % char(9)为tab键
+        iter = iter + 1;
+        for i=1:numel(strcell)
+            Dmatrix{iter,i} = mydeblank(strcell{i});
+        end
+    end
+    fclose(fidin);
+    
+else
+    % --------------------------------- 旧方法 ------------------------------- %
+    while ~feof(fidin) % 判断是否为文件末尾   
+        % 从文件读行并去掉行尾的空格
+        tline = mydeblank(fgetl(fidin));
+        if numel(tline)==0 || strcmp(tline(1), '#') % 行首为#，说明是注释，则跳过
+            continue;
+        end
+
+        % 对每一行数据把传感器的标识对应成数字编号，写数据库时再还原
+        strcell = strsplit(':', tline); % char(9)为tab键
+        iter = iter + 1;
+        for i=1:numel(strcell)
+            Dmatrix{iter,i} = mydeblank(strcell{i});
+        end
+
+    end
+    fclose(fidin);  
+end
+
+% 最后得到的Dmatrix第一列是传感器编号，后面是管线组
+% 删除空cell，减小D矩阵规模
+flag = ~isemptycell(Dmatrix);
+Dmatrix(:,sum(flag)==0) = []; % 删除全空行和全空列
+Dmatrix(sum(flag,2)==0,:) = [];
+   
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
