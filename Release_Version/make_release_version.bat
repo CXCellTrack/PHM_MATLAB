@@ -37,6 +37,13 @@ xcopy %suc_home%PHMdiag\distrib\PHMdiag.exe %dst_home%PHMdiag\distrib\ /y
 xcopy %suc_home%PHMpredict\distrib\PHMpredict.exe %dst_home%PHMpredict\distrib\ /y
 
 
+rem 4、复制 软件使用文档 中的内容
+set suc_home=%phm_home%\软件使用文档\
+set dst_home=%phm_home%\Release_Version\PHM_PIPE\软件使用文档\
+
+xcopy %suc_home%*.pdf %dst_home% /y
+
+
 
 :pause
 ping localhost -n 3 >nul

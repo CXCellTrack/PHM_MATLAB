@@ -6,14 +6,8 @@ function [ MAX MIN ] = getMaxMinInDBCol( conn, colname, tablename )
 %       colname：列名
 %       tablename：表名
 %
-getMaxMin = fetch(exec(conn, ['select max("', colname ,'"),min("', colname ,'")  from "', tablename,'"']));
-close( getMaxMin );
-
-if ~isempty(getMaxMin.Message)
-    errorlog(getMaxMin.Message);
-end
-
-Data = getMaxMin.Data;
+sql = ['select max("', colname ,'"),min("', colname ,'")  from "', tablename,'"'];
+Data = fetch_data(conn, sql);
 
 MAX = Data{1};
 MIN = Data{2};

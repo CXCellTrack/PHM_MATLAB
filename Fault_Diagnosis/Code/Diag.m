@@ -10,10 +10,14 @@ diagpath = getphmpath('diag');
 bnet_path = [diagpath, '\',pipeclass,'\data\mat\bnetCPD_',pipeclass,'.mat'];
 % 不存在时需要重新读入数据进行创建
 if ~exist(bnet_path,'file')
-    writelog('正在从数据库中更新CPD...\n\n');
-%     bnet1 = AssignCPD( pipeclass, bnet, n_fault, s_fault, n_sensor);
-    bnet2 = getCPDfromDB( conn, bnet1, info, pipeclass, diagpath, n_fault );
-    bnetCPD = add_gaussian_Pseudo_count( bnet2 ); % 在bnet中增加高斯伪计数功能（用于参数更新）
+    if 0
+        writelog('正在从数据库中更新CPD...\n\n');
+        bnet2 = getCPDfromDB( conn, bnet1, info, pipeclass, diagpath, n_fault );
+        bnetCPD = add_gaussian_Pseudo_count( bnet2 ); % 在bnet中增加高斯伪计数功能（用于参数更新）
+    else
+        writelog('使用用户自定义的CPD...\n\n');
+        bnetCPD = bnet1;
+    end
     save(bnet_path, 'bnetCPD');
 else
     load(bnet_path);
@@ -24,9 +28,11 @@ end
 % bnetCPD：包含CPD和高斯伪计数
 % ------------------------- %
 % 使用以下代码查看CPD是否正确
-CPD_TO_SEE = cell(numel(bnetCPD.CPD), 1);
-for i=1:numel(bnetCPD.CPD)
-    CPD_TO_SEE{i} = struct(bnetCPD.CPD{i});
+if 0
+    CPD_TO_SEE = cell(numel(bnetCPD.CPD), 1);
+    for i=1:numel(bnetCPD.CPD)
+        CPD_TO_SEE{i} = struct(bnetCPD.CPD{i});
+    end
 end
 % ------------------------- %
 

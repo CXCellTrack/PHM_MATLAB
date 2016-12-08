@@ -16,16 +16,10 @@ end
 % 将当前的CPD值写入一个txt中 % 2016.4.7 改用xml了
 % current_CPD_path = [diagpath, '\',pipeclass,'\data\udf\current_CPD_',pipeclass,'.txt'];
 % ----------------------------------------------------------------------- %
-home = getphmpath('home');
-DB = read_DBinfo([home,'\DBinfo.ini']);
-% 读取数据库信息
-user = DB.username_oracle;
-pw = DB.password_oracle;
-sid = DB.service_name_oracle;
 % 创建统计表 ST_tablename，CPD的初值需要从统计表中读入
 ST_table_path = [diagpath, '\', pipeclass, '\data\sql\', ST_tablename, '.sql'];
-exesql = ['sqlplus ',user,'/',pw,'@',sid,' @', ST_table_path];
-system( exesql );
+execute_sql_script(ST_table_path);
+
 % 校验统计表是否创建成功，如果没有直接报错。
 validateTable(conn, ST_tablename);
 % ----------------------------------------------------------------------- %
@@ -38,9 +32,9 @@ for h=1:numel(info.sensor)
     sensorname = info.sensor(h).ATTRIBUTE.name;
 %     if ~ischar(sensorname) % sensorname如果是纯数字会被读成数字，需要转成char
 %         sensorname = num2str(sensorname); % 在读入时已经做了转换
-%     end
-    
-    sql = ['select "count","mean","cov" from ',ST_tablename,' where DEVCODE=''',sensorname,''''];
+%     end   
+    sql = sprintf('select "count","mean","cov" from %s where DEVCODE=''%s''', ...
+        ST_tablename, sensorname);
     DATA = fetch_data(conn, sql);
     % 查询不到则进入下一个（要求数据的个数在50以上才统计）
     if strcmp(DATA{1},'No Data') || DATA{1}<50

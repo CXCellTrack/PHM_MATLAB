@@ -15,14 +15,12 @@ s_fault = i;
 faultclass = data2write(1:i,2);
 clear data2write % 提取完信息之后删去 data2write
 
-
 % 选择管线进行预测
 diagtablename = 'YJ_WARNING_DIAGNOSIS';
 
 % 原本打算用SVR做预测，后来使用线性外推，这个就不需要了
 % cmd = readSVRparam( predict_path, 'Water');
 % ------------------------------------------ %
-txtname = [predict_path,'\',pipeclass,'\data\backup_',pipeclass,'.txt'];
 % 载入 eval_data2write_ 是为了获取 n_pipe 和 管线名称
 load([eval_path, '\',pipeclass,'\data\mat\eval_data2write_',pipeclass,'.mat']);
 
@@ -37,7 +35,7 @@ n_pipe = size(eval_data2write,1);
 data = zeros(n_pipe*s_fault, n_predict); % 数据
 bias = zeros(n_pipe*s_fault, n_predict); % 偏差
 
-writelog(['<预测',num2str(n_pipe),'个管线未来',num2str(n_predict),'小时的故障发生概率>\n']);
+writelog(['<预测',num2str(n_pipe),'个管线未来',num2str(n_predict),'次的故障发生概率>\n']);
 tic
 for i=1:n_pipe
     thispipe = eval_data2write{i,1};
@@ -84,6 +82,7 @@ writelog('故障预测完成！\n\n', 1);
 data2write = get_PR_data( eval_data2write(:,1), data, bias, last_dr_id, n_pipe, faultclass, diag_trigger_time );
 
 % 数据本地备份
+txtname = [predict_path,'\',pipeclass,'\data\backup_',pipeclass,'.txt'];
 WriteData2txt( txtname, data2write );
 
 

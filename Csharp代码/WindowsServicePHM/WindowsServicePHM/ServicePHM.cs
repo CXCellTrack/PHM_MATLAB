@@ -27,8 +27,8 @@ namespace WindowsServicePHM
         public static string logpath = CallUserExe.getFullFilePath("phm_home", @"\Csharp代码\PHM.log");
         public const string exeDiagPath = @"\Precompiled_EXE\PHMdiag\distrib\PHMdiag.exe";
         public const string exePredictPath = @"\Precompiled_EXE\PHMpredict\distrib\PHMpredict.exe";
-        // 诊断完成后/预测完成后 应该做的事
-        public const string exePostPath = @"\Csharp代码\WindowsServicePHM\runbat\bin\Debug\runbat.exe";
+        // 诊断完成后/预测完成后 应该做的事（2016.12.8改为在matlab中处理）
+        //public const string exePostPath = @"\Csharp代码\WindowsServicePHM\runbat\bin\Debug\runbat.exe";
 
 
         /// <summary>
@@ -119,15 +119,15 @@ namespace WindowsServicePHM
                 ServiceLog.WriteLog(info, null);
                 if (hasDiaged) // 执行完诊断才写入alarm
                 {
-                    // 执行完毕后运行 diag_post.bat 将诊断结果写入报警表、
-                    CallUserExe.call("phm_home", exePostPath, " diag"); 
+                    // 执行完毕后运行 diag_post.bat 将诊断结果写入报警表（2016.12.8改为在matlab中处理）
+                    //CallUserExe.call("phm_home", exePostPath, " diag"); 
                     // 这里的参数需要加一个空格，猜测是采用system('exe arg1 arg2')这种形式
                     ServiceLog.WriteLog("alarm", null);
                 }
                 else
                 {
-                    // 执行完毕后运行 predict_post.bat 进行后处理
-                    CallUserExe.call("phm_home", exePostPath, " predict");
+                    // 执行完毕后运行 predict_post.bat 进行后处理（2016.12.8改为在matlab中处理）
+                    //CallUserExe.call("phm_home", exePostPath, " predict");
                     ServiceLog.WriteLog("alarm", null);
                 }
             }
@@ -160,15 +160,24 @@ namespace WindowsServicePHM
         /// <returns></returns>
         private static Dictionary<string, int> read_diag_trigger_time(string txtpath)
         {
-            StreamReader rd = new StreamReader(txtpath);
-            string firstline = rd.ReadLine();
-            rd.Close();
-            string[] arr = firstline.Split(); // 按空格划分
             // 使用字典存放这些变量
             Dictionary<string, int> dict = new Dictionary<string, int>();
-            dict.Add("diag_trigger_time", int.Parse(arr[5]));
-            dict.Add("predict_trigger_time", dict["diag_trigger_time"] * int.Parse(arr[3]));
-            dict.Add("max_diag_time", int.Parse(arr[7])); // 将最后一个字符转换为int
+            StreamReader rd = new StreamReader(txtpath);
+            string line = rd.ReadLine();
+            while (line != null)
+            {
+                line = line.Trim();
+                if (line.StartsWith("["))
+                {
+                    Console.WriteLine(line);
+                    string nextline = rd.ReadLine().Trim();
+                    Console.WriteLine(line.Trim(new char[] { '[', ']' }));
+                    dict.Add(line.Trim(new char[] { '[', ']' }), int.Parse(nextline));
+                }
+                line = rd.ReadLine();
+            }
+            rd.Close();
+            dict.Add("predict_trigger_time", dict["diag_trigger_time"] * dict["n_predict"]);
             return dict;
         }
 

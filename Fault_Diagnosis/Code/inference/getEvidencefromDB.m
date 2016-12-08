@@ -39,16 +39,19 @@ for h=1:numel(info.sensor)
     % sql语句找出最近的一次uptime，使用该记录进行诊断
     DATA = fetch_data(conn, sql);
     sid = h + n_fault; % sensor id 的推出方式
-    
-    % 如果没找到数据则设置观测为其正常时候的均值，即默认正常
+
+    cpd_value = struct(bnetCPD.CPD{sid});
+    mean_value = reshape(cpd_value.mean, 1, []);
     if strcmp(DATA{1},'No Data')
-        tmp = struct(bnetCPD.CPD{sid});
-        tmp = reshape(tmp.mean, 1, []);
-        evidence{sid} = tmp(1);
-        continue
+        % 如果没找到数据则设置观测为其正常时候的均值，即默认正常
+        evidence{sid} = mean_value(1);
+    else
+        % 输入证据，证据要cut到[mean_value(1)，mean_value(2)]之间
+        DATA = str2double(DATA);
+        DATA(DATA>mean_value(2)) = mean_value(2);
+        DATA(DATA<mean_value(1)) = mean_value(1);
+        evidence{sid} = DATA;
     end
-    % 输入证据
-    evidence{sid} = str2double(DATA);
 end
     
 

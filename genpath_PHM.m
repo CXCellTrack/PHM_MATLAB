@@ -6,7 +6,7 @@ subpath = genpath(home);
 subpath = strsplit(';', subpath(1:end-1)); % 去掉末尾的空格
 
 newpath = [];
-ignore_path = {'Csharp代码', '.git', 'MCR files', 'Precompiled EXE',...
+ignore_path = {'Csharp代码', '.git', 'MCR_files', 'Precompiled_EXE',...
     'Release_Version', '软件使用文档', '序列触发器sql脚本'};
 
 for i=1:numel(subpath)

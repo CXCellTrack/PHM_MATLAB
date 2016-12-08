@@ -10,9 +10,6 @@ for i=1:size(data2write,1)
     sql = ['insert into "',tablename,...
         '" ("db_id","pipe_id","fault_type","predict_prob","prob_bias","predict_time","analysis","pre_record_id")',...
         ' values(',thisdata,')'];
-    send = exec(conn, sql);
-    if ~isempty(send.Message)
-        errorlog(send.Message);
-    end
-    close(send); % 要及时关闭游标，否则会达到最大数报错
+    
+    fetch_data(conn, sql);
 end

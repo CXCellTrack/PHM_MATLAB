@@ -1,4 +1,4 @@
-function ImportTxt2DB( DB, tablename, pipeclass )
+function ImportTxt2DB( tablename, pipeclass )
 % 
 % 这个函数用于校验txt的正确性（通过recordId）
 % 并且将txt中的内容写入到数据库
@@ -55,23 +55,25 @@ for ii=1:numel(lines)
 end
 fclose(fid);
 
-
+global DB
 % 读取数据库信息
 user = DB.username_oracle;
 pw = DB.password_oracle;
 sid = DB.service_name_oracle;
+url = DB.database_url_oracle;
+remote_ip = url(strfind(url, '@')+1:end-1);
+remote_sid = [remote_ip, '/', sid];
 
 fprintf('从txt导入到数据库表格%s...\n', tablename);
 tic;
 try
     % oracle的方式需要通过命令行执行control脚本，无法直接通过sql语句导入
-    exesql = ['sqlldr ',user,'/',pw,'@',sid,' control=',controlpath,' log=',...
+    exesql = ['sqlldr ',user,'/',pw,'@',remote_sid,' control=',controlpath,' log=',...
         controlpath(1:end-3), 'log', ' bindsize=',num2str(10*2^20),' rows=4096 silent=header'];
     % rows默认为64，且受到bindsize的限制；因此将bindsize设为10M，rows可设为4096，以加快读入速度；不输出头部信息
     system( exesql );
 catch
-    controlpath = alterPath( controlpath );
-    errorlog(['通过sqlldr执行控制脚本',controlpath,'失败！请查看log日志']);
+    errorlog(['通过sqlldr执行控制脚本', alterPath(controlpath), '失败！请查看log日志']);
 end
 writelog('toc', toc);
 writelog('数据导入完成！\n\n==========================================\n',true);

@@ -1,4 +1,4 @@
 function str = alterPath( str )
 
-% 涓昏鏄负浜唂printf鍦板潃鍒皌xt涓紝鍥犳瑕佹妸'\'鍐欐垚'/'
+% 将路径中的'\'替换为'/'，以供log写入使用
 str = strrep(str, '\', '/');

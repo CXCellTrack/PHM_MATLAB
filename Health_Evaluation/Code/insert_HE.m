@@ -21,9 +21,6 @@ for i=1:size(data2write,1)
     % 注意sql语句的写法，fieldname得用"",values中的字符串得用''
     sql = ['insert into "',tablename,'" ("DBID","PIPEID","MEMO","RANK","EVALRECORDID","EVALTIME")',...
         ' values(',thisdata,')'];
-    send = exec(conn, sql);
-    if ~isempty(send.Message)
-        errorlog(send.Message);
-    end
-    close(send); % 要及时关闭游标，否则会达到最大数报错
+    
+    fetch_data(conn, sql);
 end

@@ -19,7 +19,7 @@ end
 
 if ~status
     cmdans = strsplit('=', result);
-    path = mydeblank( cell2mat(cmdans(2)) );
+    path = strtrim( cell2mat(cmdans(2)) );
 else
     errorlog(['没有找到环境变量 ',pathname]);
 end

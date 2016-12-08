@@ -7,6 +7,9 @@ using System.IO;
 
 namespace runbat
 {
+    /// <summary>
+    /// 已经放弃使用（2016.12.8改为在matlab中处理）
+    /// </summary>
     class Program
     {
 
