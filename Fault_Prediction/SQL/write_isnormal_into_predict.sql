@@ -8,5 +8,3 @@ END
 WHERE
 	ISNORMAL IS NULL
 ;
-
--- exit;

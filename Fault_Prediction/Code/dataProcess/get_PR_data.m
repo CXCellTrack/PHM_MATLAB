@@ -31,7 +31,8 @@ prob_bias = reshape(roundn(bias,-2), n_fault*n_predict, 1);
 %     end
 % end
 % predict_time = [ tm{1},'-',tm{2},'-',tm{3},' ',tm{4},':',tm{5},':',tm{6} ];
-predict_time = datestr(now,31);
+global predictTime
+% predictTime = datestr(now,31);
 
 % ----- analysis赋值 ----- %
 analysis = '对预测结果的分析';
@@ -61,7 +62,7 @@ data2write(:,1) = pipe_id;
 data2write(:,2) = faultclass;
 data2write(:,[3 4]) = num2cell([prob, prob_bias]);
 data2write(:,5) = num2cell(prob<0.3); % 发生概率小于0.3算正常
-data2write(:,6) = {predict_time};
+data2write(:,6) = {predictTime};
 data2write(:,7) = {analysis};
 data2write(:,8) = record_id;
 

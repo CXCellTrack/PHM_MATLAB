@@ -1,4 +1,4 @@
--- 更新诊断数据列
+-- 更新 YJ_WARNING_FORECAST 表中的诊断数据列 
 UPDATE "YJ_WARNING_FORECAST" P -- 预测表格p
 SET
 (

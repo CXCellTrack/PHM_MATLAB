@@ -1,0 +1,13 @@
+﻿正在安装程序集“C:\Users\Administrator\Desktop\PHM_PIPE\Csharp代码\WindowsServicePHM\WindowsServicePHM\bin\Debug\WindowsServicePHM.exe”。
+受影响的参数是:
+   logtoconsole = 
+   logfile = C:\Users\Administrator\Desktop\PHM_PIPE\Csharp代码\WindowsServicePHM\WindowsServicePHM\bin\Debug\WindowsServicePHM.InstallLog
+   assemblypath = C:\Users\Administrator\Desktop\PHM_PIPE\Csharp代码\WindowsServicePHM\WindowsServicePHM\bin\Debug\WindowsServicePHM.exe
+正在安装服务 PHM...
+已成功安装服务 PHM。
+正在日志 Application 中创建 EventLog 源 PHM...
+正在提交程序集“C:\Users\Administrator\Desktop\PHM_PIPE\Csharp代码\WindowsServicePHM\WindowsServicePHM\bin\Debug\WindowsServicePHM.exe”。
+受影响的参数是:
+   logtoconsole = 
+   logfile = C:\Users\Administrator\Desktop\PHM_PIPE\Csharp代码\WindowsServicePHM\WindowsServicePHM\bin\Debug\WindowsServicePHM.InstallLog
+   assemblypath = C:\Users\Administrator\Desktop\PHM_PIPE\Csharp代码\WindowsServicePHM\WindowsServicePHM\bin\Debug\WindowsServicePHM.exe

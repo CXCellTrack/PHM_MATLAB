@@ -16,7 +16,7 @@ close(conn);
 writelog('数据库连接关闭！\n', 1);
 
 % 运行sqls_to_run.sql
-run_post_sqls('diag')
+run_post_sqls('diag');
 
 % 设置数据库读取格式
 % setdbprefs('datareturnformat', 'cellarray')

@@ -2,9 +2,13 @@ function PredictMain( conn )
 
 % 这是故障诊断的最终函数
 % 给定数据库连接conn后，诊断所有管线的故障，并写入数据库
-
 tablename = 'YJ_WARNING_FORECAST';
+% predictTime 使用全局变量，否则开始和结束的时间会不一样
+global predictTime
+nt = now;
+predictTime = datestr(nt,31);
 % 验证预测结果是否正确
+writelog('验证上一次的预测结果是否正确\n\n', true);
 Val_Pre_Result(); 
 
 AS = readActivate_Pipe(); % 从外部读入各类管线的激活状态

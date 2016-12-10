@@ -16,6 +16,6 @@ close(conn);
 writelog('数据库连接关闭！\n',1);
 
 % 运行sqls_to_run.sql
-run_post_sqls('predict')
+run_post_sqls('predict');
 
 

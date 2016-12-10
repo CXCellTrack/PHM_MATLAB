@@ -82,10 +82,9 @@ isnormal = probability<0.3; % 放到bat里面执行更灵活
 % recordId = [tm{1},tm{2},tm{3},tm{4},tm{5}]; % 使用日期来确定recordId
 
 % 2016.2.26使用简单方法来制作这2个时间
-nt = now;
-diagTime = datestr(nt,31);
-
-global recordId
+global diagTime recordId
+% nt = now;
+% diagTime = datestr(nt,31);
 % recordId = strrep(datestr(nt,30),'T','');
 
 % 将以上数据组合成一条管线的记录

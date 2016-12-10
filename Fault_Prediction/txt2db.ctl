@@ -1,6 +1,6 @@
 LOAD DATA
 INFILE
-"%predictpath%\Water\data\backup_Water.txt"
+"%predictpath%\Rain\data\backup_Rain.txt"
 append
 into TABLE "YJ_WARNING_FORECAST"
 FIELDS TERMINATED BY ","

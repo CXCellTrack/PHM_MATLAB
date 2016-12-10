@@ -27,7 +27,7 @@
 	<standard>
 		<very_healthy>80</very_healthy>
 		<healthy>60</healthy>
-		<semi_healthy>60</semi_healthy>
+		<semi_healthy>40</semi_healthy>
 		<ill>20</ill>
 	</standard>
 

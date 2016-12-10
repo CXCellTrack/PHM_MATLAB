@@ -6,8 +6,9 @@ tablename = 'YJ_WARNING_DIAGNOSIS';
 AS = readActivate_Pipe(); % 从外部读入各类管线的激活状态（字典类型）
 
 % record_id 使用全局变量，否则开始和结束的id会不一样
-global recordId
+global recordId diagTime
 nt = now;
+diagTime = datestr(nt,31);
 recordId = strrep(datestr(nt,30),'T','');
 recordId = recordId(1:end-2);
 
